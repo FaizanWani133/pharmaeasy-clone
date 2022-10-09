@@ -14,19 +14,76 @@ import {
   Divider,
   Text,
   Avatar,
+  VStack,
+  HStack,
 } from "@chakra-ui/react";
 
 import React, { useEffect, useState } from "react";
-import { HiOutlineDeviceMobile } from "react-icons/hi";
+import { HiOutlineDeviceMobile, HiOutlineHome } from "react-icons/hi";
 import { TbDiscount2 } from "react-icons/tb";
-import { AiOutlineUser } from "react-icons/ai";
+import { GiMedicines} from "react-icons/gi";
+import { AiOutlineQuestionCircle, AiOutlineUser } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
-import { RiMenuFoldFill,} from "react-icons/ri";
+import { RiHandSanitizerLine, RiMenuFoldFill,} from "react-icons/ri";
+import { IoBagOutline, IoFlaskOutline, IoWalletOutline,} from "react-icons/io5";
 
 import { Link, useNavigate } from "react-router-dom";
 
 
 function Navbar() {
+  const tabs = [
+    {
+      title:"Home",
+      path:"/",
+      logo:<HiOutlineHome/>
+    },
+    {
+      title:"Order Medicine",
+      path:"/medicines",
+      logo:<GiMedicines/>
+    },
+    {
+      title:"HealthCare Products",
+      path:"/healthcare",
+      logo:<RiHandSanitizerLine/>
+    },
+    {
+      title:"Lab Tests",
+      path:"/labTests",
+      logo:<IoFlaskOutline/>
+    },
+    {
+      title:"Offers",
+      path:"/offers",
+      logo:<TbDiscount2/>
+    }
+    ,
+    {
+      title:"My Account",
+      path:"/user",
+      logo:<AiOutlineUser/>
+    },
+    {
+      title:"Orders",
+      path:"/cart",
+      logo:<IoBagOutline/>
+    },
+    {
+      title:"Wallet",
+      path:"/wallet",
+      logo:<IoWalletOutline/>
+    }
+    ,
+    {
+      title:"Need Help?",
+      path:"/help",
+      logo:<AiOutlineQuestionCircle/>
+    }
+  ]
+
+
+
+
   const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -40,6 +97,7 @@ function Navbar() {
     };
   }, []);
   return (
+    <Box>
     <Box
       p="12px 40px 10px 40px"
       position="fixed"
@@ -109,6 +167,8 @@ function Navbar() {
               colorScheme="gray"
               variant="solid"
               fontWeight="normal"
+              borderRadius="10px"
+              fontSize="15px"
             >
               Download App
             </Button>
@@ -166,13 +226,23 @@ function Navbar() {
             </Box>
           
           </DrawerHeader>
-          <DrawerBody>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
+          <DrawerBody padding="0">
+            <VStack   align="left">
+              {tabs.map(tab=><Link onClick={onClose} className="link" key={tab.path}  to={tab.path}><HStack padding="12px 24px" cursor="pointer" _hover={{color:"#10847E"}} spacing="20px">{tab.logo}<Text>{tab.title}</Text></HStack><Divider/></Link>)}
+
+              
+              
+              
+
+            </VStack>
+            
           </DrawerBody>
         </DrawerContent>
       </Drawer>
+    </Box>
+    <Box height="65px" width="100%">
+
+    </Box>
     </Box>
   );
 }

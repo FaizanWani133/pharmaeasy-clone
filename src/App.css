@@ -9,3 +9,8 @@
 .menuHover{
   cursor: pointer;
 }
+.link{
+  text-decoration: none;
+  margin-top: .5rem;
+ 
+}
