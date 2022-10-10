@@ -1,11 +1,11 @@
-
-import './App.css';
+import { Box, Container, Text } from '@chakra-ui/layout';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Box width="100%" className="App">
+      <Footer/>
+    </Box>
   );
 }
 
