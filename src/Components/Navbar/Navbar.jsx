@@ -28,6 +28,8 @@ import { RiHandSanitizerLine, RiMenuFoldFill,} from "react-icons/ri";
 import { IoBagOutline, IoFlaskOutline, IoWalletOutline,} from "react-icons/io5";
 
 import { Link, useNavigate } from "react-router-dom";
+import NavSearch from "./NavSearch";
+import Tabs from "./Tabs";
 
 
 function Navbar() {
@@ -82,8 +84,11 @@ function Navbar() {
   ]
 
 
-
-
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
   const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -96,11 +101,20 @@ function Navbar() {
       );
     };
   }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <Box>
     <Box
       p="12px 40px 10px 40px"
       position="fixed"
+      zIndex="4"
+      bg="white"
       top="0"
       left="0"
       width="100%"
@@ -115,7 +129,7 @@ function Navbar() {
             <RiMenuFoldFill fontSize="20px" className="menuHover" onClick={onOpen} />
           </Box>
         )}
-        {windowWidth < 1024 && (
+        {windowWidth < 1024 &&  scrollPosition <101 && (
           <Box margin="auto">
             <Image
               _hover={{ cursor: "pointer" }}
@@ -138,6 +152,7 @@ function Navbar() {
             <Divider orientation="vertical" />
           </Center>
         )}
+        
         {windowWidth > 1024 && (
           <Box>
             <Box
@@ -154,19 +169,23 @@ function Navbar() {
             </Box>
 
             <Text fontSize="14px" fontWeight="600">
-              400001 Mumbai ▼
+              400001 Mumbai <b>⌵</b>
             </Text>
           </Box>
         )}
+        
       </Flex>
-      <Flex align="center" justifyContent="end" width="50%" gap="20px">
-        {windowWidth > 1024 && (
+      
+      <Flex align="center" justifyContent="end" gap="20px">
+      {scrollPosition > 100 && <NavSearch/>}
+        {windowWidth > 1024 && scrollPosition < 101 && (
           <Box>
+            
             <Button
               leftIcon={<HiOutlineDeviceMobile fontSize="25px" />}
               colorScheme="gray"
               variant="solid"
-              fontWeight="normal"
+              fontWeight="500"
               borderRadius="10px"
               fontSize="15px"
             >
@@ -240,9 +259,11 @@ function Navbar() {
         </DrawerContent>
       </Drawer>
     </Box>
-    <Box height="65px" width="100%">
+    <Box height="65px" width="100%" pos="relative">
+    {scrollPosition > 200 && <Tabs/>}
 
     </Box>
+    
     </Box>
   );
 }
