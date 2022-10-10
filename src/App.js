@@ -1,5 +1,5 @@
 import { Box, Container, Text } from '@chakra-ui/layout';
-import Footer from './Components/Footer';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
