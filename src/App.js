@@ -1,12 +1,20 @@
-import { Box, Container, Text } from '@chakra-ui/layout';
+
+
+import './App.css';
+import Navbar from './Components/Navbar/Navbar';
+import AllRoutes from './Pages/AllRoutes';
+
 import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
-    <Box width="100%" className="App">
+    <div className="App">
+      <Navbar/>
+      <AllRoutes/>
       <Footer/>
-    </Box>
-  );
+      
+    </div>
+    )
 }
 
 export default App;

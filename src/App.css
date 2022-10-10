@@ -1,5 +1,18 @@
 .App {
   text-align: center;
+  color: rgba(0, 0, 0, .8);
+  font-family: sans-serif;
+}
+.hover_green:hover{
+  color: #10847E;
+}
+.menuHover{
+  cursor: pointer;
+}
+.link{
+  text-decoration: none;
+  margin-top: .5rem;
+ 
 }
 
 .App-logo {
