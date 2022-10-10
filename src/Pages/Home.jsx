@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
 import TabCarousal from '../Components/Home/TabCarousal'
-import SearchBar from '../Components/Navbar/SearchBar'
+import SearchBar from '../Components/Home/SearchBar'
 
 function Home() {
   return (

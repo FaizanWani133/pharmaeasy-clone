@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   color: rgba(0, 0, 0, .8);
-  font-family: sans-serif;
+  font-family:"inter",sans-serif;
 }
 .hover_green:hover{
   color: #10847E;
@@ -13,6 +13,20 @@
   text-decoration: none;
   margin-top: .5rem;
  
+}
+
+.tabs{
+  font-family:"inter",sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+ 
+  
+}
+.tabs:hover{
+  color: white;
+}
+.hideScroll::-webkit-scrollbar {
+  display: none;
 }
 
 .App-logo {
@@ -40,6 +54,7 @@
 .App-link {
   color: #61dafb;
 }
+
 
 @keyframes App-logo-spin {
   from {

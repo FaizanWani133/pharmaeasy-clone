@@ -1,16 +1,13 @@
 import {
   Box,
   Button,
-  Container,
-  Divider,
+ 
   Flex,
   Image,
   Text,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-
-function TabCarousal() {
-  const tabCards = [
+export const tabCards = [
     {
       title: "Medicine",
       path: "/medicines",
@@ -50,23 +47,12 @@ function TabCarousal() {
       title: "Value Store",
       path: "/",
       img: "https://assets.pharmeasy.in/apothecary/images/value_store.png?dim=256x0",
-    },
-    {
-      title: "Value Store",
-      path: "/",
-      img: "https://assets.pharmeasy.in/apothecary/images/value_store.png?dim=256x0",
-    },
-    {
-      title: "Value Store",
-      path: "/",
-      img: "https://assets.pharmeasy.in/apothecary/images/value_store.png?dim=256x0",
-    },
-    {
-      title: "Value Store",
-      path: "/",
-      img: "https://assets.pharmeasy.in/apothecary/images/value_store.png?dim=256x0",
-    },
+    }
+    
   ];
+
+function TabCarousal() {
+  
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
@@ -83,7 +69,7 @@ function TabCarousal() {
       paddingRight={{ base: "10px", sm: "20px", lg: "50px", xl: "50px" }}
       mt="50px"
     >
-      <Box width="100%" display="flex" position="relative">
+      <Box width="100%"  position="relative">
         {windowWidth > 1024 && <Button colorScheme="teal" position="absolute" top="50" left="-10">
           L
         </Button>}
@@ -92,16 +78,21 @@ function TabCarousal() {
           width="100%"
           gap={{ base: "10px", lg: "50px", sm: "30px" }}
           overflowX="scroll"
+          overflowY="hidden"
+          paddingY={5}
+          className="hideScroll"
+          
         >
           {tabCards.map((tab) => (
             <Box
               maxWidth="141px"
-              minW={{ base: "99px", sm: "105px", lg: "110px" }}
-              border={{
-                base: "1px solid transparent",
-                sm: "1px solid transparent",
-                lg: "transparent",
-              }}
+              minW={{ base: "99px", sm: "115px", lg: "133px" }}
+              
+              key={tab.title}
+              _hover={{lg:{boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px;",borderRadius: "10px"}}}
+              cursor="pointer"
+              paddingX="12px"
+              
             >
               <Image
                 mb="10px"
@@ -117,8 +108,9 @@ function TabCarousal() {
 
               <Text
                 fontFamily="sans-serif"
-                fontSize={{ base: "14px", sm: "16px", lg: "18px" }}
+                fontSize={{ base: "14px", sm: "15px", lg: "16px" }}
                 fontWeight="500"
+                mb={2}
               >
                 {tab.title}
               </Text>
