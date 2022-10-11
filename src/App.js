@@ -13,15 +13,9 @@ function App() {
       <Navbar/>
       <AllRoutes/>
       <Footer/>
-<<<<<<< HEAD
-      <Slider/>
-    </Box>
-  );
-=======
-      
+      {/* <Slider/> */}
     </div>
-    )
->>>>>>> 2c639cc6f06ff9d635996835d8fcea22422265ef
+  );
 }
 
 export default App;
