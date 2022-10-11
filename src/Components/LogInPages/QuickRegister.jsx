@@ -1,8 +1,9 @@
 import React from 'react'
 import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, Image, Input, Stack, useDisclosure, InputGroup, InputRightElement, Text } from "@chakra-ui/react";
-import { LoginIndividualSlider } from './LoginIndividualSlider';
+import { LoginIndividualSlider } from './QuickLogin';
+import { LoginSlider } from './AfterRegister';
 
-export const LogInSignUp = () => {
+export const QuickRegister = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const firstField = React.useRef();
     const [show, setShow] = React.useState(false);
@@ -10,7 +11,7 @@ export const LogInSignUp = () => {
   return (
     <div>
         <Text onClick={onOpen} color="black" cursor="pointer">
-            Login / Signup
+            Hello, Log in
         </Text>
         <Drawer
             isOpen={isOpen}
@@ -136,7 +137,7 @@ export const LogInSignUp = () => {
                     </Stack>
                 </Box>
                 
-                {/* <LogInSlider handleRegister={handleRegister} /> */}
+                <LoginSlider />
                 </Stack>
                 <Text fontSize="12px" color="#4f585e" py="20px">
                 By clicking continue, you agree with our{" "}

@@ -1,11 +1,18 @@
 import './App.css';
-import { LogInSignUp } from './LogInPages/LogInSignUp';
+import { LogInSignUp } from './Components/LogInPages/QuickRegister';
+import Navbar from './Components/Navbar/Navbar';
+import AllRoutes from './Pages/AllRoutes';
+
+import Footer from './Components/Footer/Footer';
+
 
 function App() {
   return (
     <div className="App">
-      <LogInSignUp />
-      
+      {/* <LogInSignUp /> */}
+      <Navbar/>
+      <AllRoutes/>
+      <Footer />
     </div>
     )
 }

@@ -8,9 +8,9 @@ export function LoginIndividualSlider() {
   
     return (
       <>
-        <Button colorScheme='teal' onClick={onOpen}>
-          Login
-        </Button>
+        <Text onClick={onOpen} color="#0f847e" cursor="pointer">
+           Login
+        </Text>
         <Drawer
           isOpen={isOpen}
           placement='right'

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, Image, Input, Stack, useDisclosure, InputGroup, InputRightElement, Text } from "@chakra-ui/react";
+import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, Image, Input, Stack, useDisclosure, InputGroup, InputRightElement, Text, Center } from "@chakra-ui/react";
 
 export const LoginSlider = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -17,7 +17,7 @@ export const LoginSlider = () => {
             bg="#0f847e"
             color="#fff"
             _hover={{ bg: "#159a94" }}
-            onClick={handleOpen}
+            onClick={onOpen}
             >
             Continue
             </Button>
