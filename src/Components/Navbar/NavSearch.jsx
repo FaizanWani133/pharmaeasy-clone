@@ -4,7 +4,7 @@ import React from 'react'
 
 function NavSearch() {
   return (
-    <Box  w={{base:"200px",sm:"400px",lg:"380px",xl:"500px"}}>
+    <Box  w={{base:"200px",sm:"400px",lg:"360px",xl:"500px"}}>
       <InputGroup>
     <InputLeftElement
     

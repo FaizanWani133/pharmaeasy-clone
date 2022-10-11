@@ -3,10 +3,12 @@ import {
   Button,
  
   Flex,
+  IconButton,
   Image,
   Text,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { AiOutlineRight, AiOutlineLeft } from 'react-icons/ai';
 export const tabCards = [
     {
       title: "Medicine",
@@ -20,7 +22,7 @@ export const tabCards = [
     },
     {
       title: "Healthcare",
-      path: "/healthcare",
+      path: "/categories",
       img: "https://assets.pharmeasy.in/apothecary/images/healthcare_ff.webp?dim=256x0",
     },
     {
@@ -54,6 +56,10 @@ export const tabCards = [
 function TabCarousal() {
   
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const scroll = document.getElementById("scrollBar");
+  function scrollToY (){
+    window.scrollTo(100)
+  }
   useEffect(() => {
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
     return () => {
@@ -70,9 +76,9 @@ function TabCarousal() {
       mt="50px"
     >
       <Box width="100%"  position="relative">
-        {windowWidth > 1024 && <Button colorScheme="teal" position="absolute" top="50" left="-10">
+        {windowWidth > 1024 && <IconButton bg={"rgba(0,0,0,0.5)"} position="absolute" top="50" left="-10" borderRadius="50%" icon={<AiOutlineLeft color="white" />}>
           L
-        </Button>}
+        </IconButton>}
 
         <Flex
           width="100%"
@@ -81,6 +87,7 @@ function TabCarousal() {
           overflowY="hidden"
           paddingY={5}
           className="hideScroll"
+          id="scrollBar"
           
         >
           {tabCards.map((tab) => (
@@ -107,7 +114,7 @@ function TabCarousal() {
               ></Image>
 
               <Text
-                fontFamily="sans-serif"
+                
                 fontSize={{ base: "14px", sm: "15px", lg: "16px" }}
                 fontWeight="500"
                 mb={2}
@@ -117,9 +124,9 @@ function TabCarousal() {
             </Box>
           ))}
         </Flex>
-        {windowWidth > 1024 && <Button colorScheme="teal" position="absolute" top="50" right="-10">
-          R
-        </Button>}
+        {windowWidth > 1024 && <IconButton onClick={scrollToY} bg={"rgba(0,0,0,0.5)"}  position="absolute" top="50" right="-10" borderRadius="50%" icon={<AiOutlineRight color="white"/>}>
+          
+        </IconButton>}
       </Box>
     </Box>
   );
