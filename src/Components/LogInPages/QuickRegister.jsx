@@ -137,7 +137,7 @@ export const QuickRegister = () => {
                     </Stack>
                 </Box>
                 
-                <LoginSlider />
+                <LoginSlider onClose={onClose } />
                 </Stack>
                 <Text fontSize="12px" color="#4f585e" py="20px">
                 By clicking continue, you agree with our{" "}
