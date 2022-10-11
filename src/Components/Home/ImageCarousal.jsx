@@ -1,9 +1,9 @@
 import React from 'react'
 
-function HorizontalScroll() {
+function ImageCarousal() {
   return (
     <div>HorizontalScroll</div>
   )
 }
 
-export default HorizontalScroll
+export default ImageCarousal

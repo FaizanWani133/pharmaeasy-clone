@@ -52,14 +52,23 @@ export const tabCards = [
     }
     
   ];
-
+  
 function TabCarousal() {
   
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const scroll = document.getElementById("scrollBar");
-  function scrollToY (){
-    window.scrollTo(100)
+  const [scroll,setScroll] = useState(0);
+
+  function onScrollY(){
+    
+    document.getElementById("scrollBar").scrollLeft += 400;
+    setScroll(prev=>prev+400)
   }
+  function onScrollX(){
+    document.getElementById("scrollBar").scrollLeft -= 400;
+    setScroll(prev=>prev-400)
+  }
+
+  console.log(scroll);
   useEffect(() => {
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
     return () => {
@@ -75,12 +84,13 @@ function TabCarousal() {
       paddingRight={{ base: "10px", sm: "20px", lg: "50px", xl: "50px" }}
       mt="50px"
     >
-      <Box width="100%"  position="relative">
-        {windowWidth > 1024 && <IconButton bg={"rgba(0,0,0,0.5)"} position="absolute" top="50" left="-10" borderRadius="50%" icon={<AiOutlineLeft color="white" />}>
+      <Box width="100%"   position="relative">
+        {windowWidth > 1024  && scroll > 0 && <IconButton onClick={onScrollX} bg={"rgba(0,0,0,0.5)"} position="absolute" top="50" left="-10" borderRadius="50%" icon={<AiOutlineLeft color="white" />}>
           L
         </IconButton>}
 
         <Flex
+        
           width="100%"
           gap={{ base: "10px", lg: "50px", sm: "30px" }}
           overflowX="scroll"
@@ -88,34 +98,35 @@ function TabCarousal() {
           paddingY={5}
           className="hideScroll"
           id="scrollBar"
+          scrollBehavior="smooth"
           
         >
           {tabCards.map((tab) => (
             <Box
               maxWidth="141px"
-              minW={{ base: "99px", sm: "115px", lg: "133px" }}
+              minW={{ base: "85px", sm: "110px", lg: "120px" }}
               
               key={tab.title}
               _hover={{lg:{boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px;",borderRadius: "10px"}}}
               cursor="pointer"
-              paddingX="12px"
+              // paddingX="12px"
               
             >
               <Image
                 mb="10px"
-                borderBottom="1px solid rgba(0,0,0,0.2)"
+                borderBottom={{base:"transparent",sm:"transparent",lg:"1px solid rgba(0,0,0,0.2)"}}
                 src={tab.img}
                 bg={{
                   base: "#BFEDDD",
                   sm: "#BFEDDD",
                   lg: "transparent",
                 }}
-                borderRadius="5px 5px 0 0"
+                borderRadius={{base:"10px",sm:"10px",lg:"5px 5px 0 0",xl:"5px 5px 0 0"}}
               ></Image>
 
               <Text
                 
-                fontSize={{ base: "14px", sm: "15px", lg: "16px" }}
+                fontSize={{ base: "12px", sm: "15px", lg: "16px" }}
                 fontWeight="500"
                 mb={2}
               >
@@ -124,7 +135,7 @@ function TabCarousal() {
             </Box>
           ))}
         </Flex>
-        {windowWidth > 1024 && <IconButton onClick={scrollToY} bg={"rgba(0,0,0,0.5)"}  position="absolute" top="50" right="-10" borderRadius="50%" icon={<AiOutlineRight color="white"/>}>
+        {windowWidth > 1024 && scroll <450 && <IconButton  onClick={onScrollY} bg={"rgba(0,0,0,0.5)"}  position="absolute" top="50" right="-10" borderRadius="50%" icon={<AiOutlineRight color="white"/>}>
           
         </IconButton>}
       </Box>
