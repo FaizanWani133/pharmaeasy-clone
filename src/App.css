@@ -64,10 +64,6 @@
   background-color: #c4c4c4;
 }
 
-<<<<<<< HEAD
-.slideshowDot.active {
-  background-color: #6a0dad;
-=======
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -97,5 +93,4 @@
   to {
     transform: rotate(360deg);
   }
->>>>>>> 2c639cc6f06ff9d635996835d8fcea22422265ef
 }
