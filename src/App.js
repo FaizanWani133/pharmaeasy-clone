@@ -1,17 +1,10 @@
-
-
 import './App.css';
-import Navbar from './Components/Navbar/Navbar';
-import AllRoutes from './Pages/AllRoutes';
-
-import Footer from './Components/Footer/Footer';
+import { LogInSignUp } from './LogInPages/LogInSignUp';
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <AllRoutes/>
-      <Footer/>
+      <LogInSignUp />
       
     </div>
     )
