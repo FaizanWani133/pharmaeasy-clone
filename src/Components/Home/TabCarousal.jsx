@@ -22,7 +22,7 @@ export const tabCards = [
     },
     {
       title: "Healthcare",
-      path: "/categories",
+      path: "/healthcare",
       img: "https://assets.pharmeasy.in/apothecary/images/healthcare_ff.webp?dim=256x0",
     },
     {
