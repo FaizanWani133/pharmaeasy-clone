@@ -1,5 +1,5 @@
-import { Box, Button, Flex, Heading, Image, Text } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react'
+import { Box, Flex,  Image, Text } from '@chakra-ui/react';
+import React from 'react'
 import { Link } from 'react-router-dom';
 
 
@@ -86,21 +86,21 @@ function CategoryCraousal() {
             gap={{ base: "10px", lg: "20px", sm: "20px" }}
             overflowX={{base:"hidden",lg:"scroll"}}
             overflowY="hidden"
-            paddingY={5}
+            
             className="hideScroll"
             flexWrap={{base:"wrap",sm:"wrap"}}
-            justifyContent={"center"}
+            justifyContent={"space-between"}
             
           >
             {categories.map((tab) => (<Link key={tab.title} to={tab.path} >
               <Box
-                maxWidth="141px"
-                minW={{ base: "120px", sm: "140px", lg: "180px" }}
+                
+                width={{ base: "100px", sm: "140px", lg: "180px" }}
                 
                 
                
                 cursor="pointer"
-                paddingX="12px"
+                // paddingX="12px"
                 
               >
                 <Image
@@ -117,7 +117,7 @@ function CategoryCraousal() {
   
                 <Text
                   
-                  fontSize={{ base: "14px", sm: "15px", lg: "16px" }}
+                  fontSize={{ base: "12px", sm: "15px", lg: "16px" }}
                   fontWeight="500"
                   mb={2}
                 >

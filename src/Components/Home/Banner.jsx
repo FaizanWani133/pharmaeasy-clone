@@ -1,9 +1,9 @@
-import { Box, Button, Image, Text } from "@chakra-ui/react";
+import { Box, Button,Text } from "@chakra-ui/react";
 import React from "react";
 
 function Banner() {
   return (
-    <Box  padding={{base:"10px",sm:"10px",lg:"10px",xl:"0"}}
+    <Box mt="20px"  padding={{base:"10px",sm:"10px",lg:"10px",xl:"0"}}
     borderRadius={{base:"10px",sm:"10px",lg:"10px",xl:"0"}}>
       <Box
         color="white"
