@@ -1,4 +1,4 @@
-import { Box,  Flex, HStack, Text } from '@chakra-ui/react'
+import { Box, HStack, Text } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {tabCards} from "../Home/TabCarousal"
