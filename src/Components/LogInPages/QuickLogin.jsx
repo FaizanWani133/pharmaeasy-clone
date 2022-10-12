@@ -1,16 +1,69 @@
 import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, Image, Input, Stack, useDisclosure, InputGroup, InputRightElement, Text } from "@chakra-ui/react"
-import React from 'react';
+import { useState, useRef } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { getSuccess } from '../../Redux/Auth/action';
+import { LogOut } from "./LogOut";
+
+const initState ={
+  email:"",
+  password:"",
+}
+
 export function LoginIndividualSlider() {
+
+    const auth = localStorage.getItem("isAuth");
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const firstField = React.useRef();
-    const [show, setShow] = React.useState(false)
+    const firstField = useRef();
+
+    const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
+
+    const [user, setUser] = useState(initState);
+
+    const {isAuth} = useSelector((state) => state);
+    const dispatch = useDispatch();
+
+    const handleChange = (e) =>{
+        const {name, value } = e.target;
+        setUser({...user, [name]: value})
+
+    }
+    console.log(user);
   
+    const handleLogin = async() =>{
+        let res = await fetch(`http://localhost:3000/Users`);
+        let res2 = await res.json();
+        // console.log(res2);
+
+        let flag = false;
+        res2.map((elem) => {
+            if(elem.email  === user.email  && elem.password  === user.password){
+                flag = true;
+            }
+        })
+
+        try {
+            if(flag){
+              dispatch(getSuccess(true));
+              localStorage.setItem("isAuth", true);
+              alert("Successfully LogIn");
+            }
+            else{
+              alert("Wrong Credentials!!")
+            }
+        } catch (error) {
+            console.log(error);   
+        }
+        console.log(isAuth);
+        
+        setUser(initState)
+        
+    }
+
+    console.log(auth);
     return (
       <>
-        <Text onClick={onOpen} color="#0f847e" cursor="pointer">
-           Login
-        </Text>
+       {auth ? <Text > <LogOut /> </Text> : <Text onClick={onOpen} color="black" cursor="pointer"  >Hello, Log in </Text>}
         <Drawer
           isOpen={isOpen}
           placement='right'
@@ -91,7 +144,9 @@ export function LoginIndividualSlider() {
                         outline=".1px solid black"
                         focusBorderColor="none"
                         placeholder="Enter your Email"
-                        
+                        name="email"
+                        value={user.email}
+                        onChange={handleChange}
                     />
 
                     <InputGroup h="2.8rem">
@@ -102,6 +157,9 @@ export function LoginIndividualSlider() {
                         focusBorderColor="none"
                         type={show ? "text" : "password"}
                         placeholder="Enter password"
+                        name="password"
+                        value={user.password}
+                        onChange={handleChange}
                         
                         />
                         <InputRightElement width="4.5rem">
@@ -110,15 +168,7 @@ export function LoginIndividualSlider() {
                         </Button>
                         </InputRightElement>
                     </InputGroup>
-                    <Input
-                        h="2.8rem"
-                        letterSpacing=".2px"
-                        outline=".1px solid black"
-                        focusBorderColor="none"
-                        type={"password"}
-                        placeholder="Re-enter password"
-                        
-                    />
+                    
                     </Stack>
                 </Box>
                 <Button 
@@ -127,6 +177,7 @@ export function LoginIndividualSlider() {
                     bg="#0f847e"
                     color="#fff"
                     _hover={{ bg: "#159a94" }}
+                    onClick={handleLogin}
                 >
                     Login
                 </Button>

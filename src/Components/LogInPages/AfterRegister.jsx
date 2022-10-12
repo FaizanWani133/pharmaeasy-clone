@@ -124,15 +124,7 @@ export const LoginSlider = () => {
                         </Button>
                         </InputRightElement>
                     </InputGroup>
-                    <Input
-                        h="2.8rem"
-                        letterSpacing=".2px"
-                        outline=".1px solid black"
-                        focusBorderColor="none"
-                        type={"password"}
-                        placeholder="Re-enter password"
-                        
-                    />
+                    
                     </Stack>
                 </Box>
                 <Button

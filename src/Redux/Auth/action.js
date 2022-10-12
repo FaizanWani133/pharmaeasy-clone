@@ -1,25 +1,21 @@
-export const authActions={
-    REGISTER_AUTH_REQUEST: 'REGISTER_AUTH_REQUEST',
-    REGISTER_AUTH_SUCCESS: 'REGISTER_AUTH_SUCCESS',
-    REGISTER_AUTH_FAILURE: 'REGISTER_AUTH_FAILURE',
+export const LOADING = 'LOADING';
+export const  SUCCESS= 'SUCCESS';
+export const  ERROR= 'ERROR';
 
-    LOGIN_AUTH_REQUEST: 'LOGIN_AUTH_REQUEST',
-    LOGIN_AUTH_SUCCESS: 'LOGIN_AUTH_SUCCESS',
-    LOGIN_AUTH_FAILURE: 'LOGIN_AUTH_FAILURE',
-
-}
-export const registerAuthRequest=()=>{
+export const getLoading=()=>{
     return {
-        type: authActions.REGISTER_AUTH_REQUEST,
+        type: LOADING,
     }
 }
-export const registerAuthSuccess=()=>{
+export const getSuccess=(data)=>{
     return {
-        type: authActions.REGISTER_AUTH_SUCCESS,
+        type: SUCCESS,
+        payload: data
+
     }
 }
-export const registerAuthFailure=()=>{
+export const getError=()=>{
     return {
-        type: authActions.REGISTER_AUTH_FAILURE,
+        type: ERROR,
     }
 }

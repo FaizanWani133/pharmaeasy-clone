@@ -31,6 +31,7 @@ import { Link, useNavigate } from "react-router-dom";
 import NavSearch from "./NavSearch";
 import Tabs from "./Tabs";
 import { QuickRegister } from "../LogInPages/QuickRegister";
+import { LoginIndividualSlider } from "../LogInPages/QuickLogin";
 
 
 function Navbar() {
@@ -200,7 +201,7 @@ function Navbar() {
               <Box display="flex" alignItems="center" mr="10px">
                 <AiOutlineUser fontSize="20px" />
               </Box>
-              {windowWidth > 1104 && <Box mt="2px" fontWeight="600"><QuickRegister /></Box>}
+              {windowWidth > 1104 && <Box mt="2px" fontWeight="600"><LoginIndividualSlider /> <QuickRegister /></Box>}
             </Box>
           </Link>
         )}

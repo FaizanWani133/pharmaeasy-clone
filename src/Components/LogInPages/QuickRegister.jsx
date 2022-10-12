@@ -1,18 +1,70 @@
-import React from 'react'
+import { useState, useRef } from 'react'
 import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, Image, Input, Stack, useDisclosure, InputGroup, InputRightElement, Text } from "@chakra-ui/react";
-import { LoginIndividualSlider } from './QuickLogin';
-import { LoginSlider } from './AfterRegister';
+import { useDispatch } from 'react-redux';
+
+
+const initState ={
+    name:"",
+    email:"",
+    password:"",
+}
 
 export const QuickRegister = () => {
+
+    const auth = localStorage.getItem("isAuth");
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const firstField = React.useRef();
-    const [show, setShow] = React.useState(false);
+    const firstField = useRef();
+    
+    const [show, setShow] = useState(false);
     const handleClick = () => setShow(!show);
+    const [user, setUser] = useState(initState);
+
+    const dispatch = useDispatch();
+
+    const handleChange = (e)=>{
+        const {name, value } = e.target;
+        setUser({...user, [name]: value})
+
+    }
+    // console.log(user);
+
+    const handleReg = async()=>{
+        let res = await fetch(`http://localhost:3000/Users`);
+        let res2 = await res.json();
+        // console.log(res2);
+
+        let flag = false;
+        res2.map((elem) => {
+            if(elem.email === user.email){
+                flag = true;
+            }
+        })
+
+        try {
+            if(!flag){
+                fetch(`http://localhost:3000/Users`,{
+                    method:'POST',
+                    body:JSON.stringify(user),
+                    headers:{
+                        'Content-Type': 'application/json'
+                    }
+                })
+                alert("Successfully Registered!!");
+            }
+            else{
+                alert("User already exist!!");
+                
+            }
+        } catch (error) {
+            console.log(error);   
+        }
+        setUser(initState)
+        
+    }
+
   return (
     <div>
-        <Text onClick={onOpen} color="black" cursor="pointer">
-            Hello, Log in
-        </Text>
+        {!auth ?  <Text onClick={onOpen} color="black" cursor="pointer"  >/ Sign Up</Text> : <Text onClick={onOpen} color="black" cursor="pointer"  >  </Text> }
         <Drawer
             isOpen={isOpen}
             placement="right"
@@ -88,13 +140,14 @@ export const QuickRegister = () => {
                     <Input
                         h="2.8rem"
                         ref={firstField}
-                        id="name"
                         type="text"
                         letterSpacing=".2px"
                         outline=".1px solid black"
                         focusBorderColor="none"
                         placeholder="Enter your name"
-                        
+                        name="name"
+                        value={user.name}
+                        onChange={handleChange}
                     />
                     <Input
                         h="2.8rem"
@@ -106,7 +159,9 @@ export const QuickRegister = () => {
                         outline=".1px solid black"
                         focusBorderColor="none"
                         placeholder="Enter your Email"
-                        
+                        name="email"
+                        value={user.email}
+                        onChange={handleChange}
                     />
 
                     <InputGroup h="2.8rem">
@@ -117,7 +172,9 @@ export const QuickRegister = () => {
                         focusBorderColor="none"
                         type={show ? "text" : "password"}
                         placeholder="Enter password"
-                        
+                        name="password"
+                        value={user.password}
+                        onChange={handleChange}
                         />
                         <InputRightElement width="4.5rem">
                         <Button h="2rem" size="sm" onClick={handleClick}>
@@ -125,19 +182,21 @@ export const QuickRegister = () => {
                         </Button>
                         </InputRightElement>
                     </InputGroup>
-                    <Input
-                        h="2.8rem"
-                        letterSpacing=".2px"
-                        outline=".1px solid black"
-                        focusBorderColor="none"
-                        type={"password"}
-                        placeholder="Re-enter password"
-                        
-                    />
+                    
                     </Stack>
                 </Box>
                 
-                <LoginSlider onClose={onClose } />
+                <Button
+                    w="100%"
+                    h="2.8rem"
+                    variant="#0f847e"
+                    bg="#0f847e"
+                    color="#fff"
+                    _hover={{ bg: "#159a94" }}
+                    onClick={handleReg}
+                >
+                    Register
+                </Button>
                 </Stack>
                 <Text fontSize="12px" color="#4f585e" py="20px">
                 By clicking continue, you agree with our{" "}
@@ -146,10 +205,10 @@ export const QuickRegister = () => {
                     Privacy Policy
                 </span>
                 </Text>
-                <Flex align="center" justify='center'>
+                {/* <Flex align="center" justify='center'>
                 <Text fontSize='13px' pr='10px'>Already registered?</Text>
                 <LoginIndividualSlider color={'#159a94'} font={'13px'}/>
-                </Flex>
+                </Flex> */}
             </DrawerBody>
             </DrawerContent>
         </Drawer>
