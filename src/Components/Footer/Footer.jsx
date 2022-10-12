@@ -133,7 +133,7 @@ const Footer = () => {
         </Box>
     </Accordion>
     {/* // for big screen code */}
-   <Grid gridTemplateColumns="repeat(11,1fr)" fontFamily="Inter,sans-serif" w="95%" m="auto" display={{base:"none",md:"none",lg:"grid"}}>
+   <Grid textAlign="start" gridTemplateColumns="repeat(11,1fr)" fontFamily="Inter,sans-serif" w="95%" m="auto" display={{base:"none",md:"none",lg:"grid"}}>
     <GridItem colSpan={3} mr={3}>
         <Box>
             <Box>
