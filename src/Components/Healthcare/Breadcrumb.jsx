@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom'
 
 function HealthCareBreadcrumb() {
   return (
-    <Breadcrumb fontSize="12px" spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
+    <Breadcrumb mt="50px"   fontSize="12px" spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
   <BreadcrumbItem>
-    <BreadcrumbLink ><Link to={"/"}>Home</Link></BreadcrumbLink>
+    <BreadcrumbLink _hover={{textDecoration:"none"}} ><Link className='link' to={"/"}>Home</Link></BreadcrumbLink>
   </BreadcrumbItem>
   <BreadcrumbItem isCurrentPage>
-    <BreadcrumbLink >Healthcare</BreadcrumbLink>
+    <BreadcrumbLink _hover={{textDecoration:"none"}}  >Healthcare</BreadcrumbLink>
   </BreadcrumbItem>
 </Breadcrumb>
     

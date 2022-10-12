@@ -109,7 +109,8 @@ function Navbar() {
     };
   }, []);
   return (
-    <Box>
+    <Box position={"relative"}>
+      {scrollPosition > 200 && <Tabs/>}
     <Box
       p="12px 40px 10px 40px"
       position="fixed"
@@ -259,10 +260,10 @@ function Navbar() {
         </DrawerContent>
       </Drawer>
     </Box>
-    <Box height="65px" width="100%" pos="relative">
-    {scrollPosition > 200 && <Tabs/>}
+    
+    
 
-    </Box>
+    
     
     </Box>
   );
