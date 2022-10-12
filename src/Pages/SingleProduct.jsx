@@ -10,7 +10,7 @@ function SingleProduct() {
 
         axios.get(`http://localhost:3001/Products/${id}`).then(res=>console.log(res));
 
-    },[])
+    },[id])
     useEffect(()=>{
         window.scrollTo(0,0)
       },[])

@@ -1,6 +1,6 @@
 import { Img } from '@chakra-ui/image';
-import { Box, Flex, Grid, GridItem, Heading, Text, VStack } from '@chakra-ui/layout'
-import { repeat } from 'lodash';
+import { Box, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/layout'
+
 import {
     Accordion,
     AccordionItem,
