@@ -62,10 +62,10 @@ function ImageCarousal() {
       width="100%"
       // paddingLeft={{ base: "10px", sm: "20px", lg: "50px", xl: "50px" }}
       // paddingRight={{ base: "10px", sm: "20px", lg: "50px", xl: "50px" }}
-      mt="50px"
+      mt="30px"
     >
       <Box width="100%"   position="relative">
-        {windowWidth > 1024  && scroll > 0 && <IconButton onClick={onScrollX} bg={"rgba(0,0,0,0.4)"} position="absolute" top="100" left="-5" borderRadius="50%" icon={<AiOutlineLeft color="white" />}>
+        {windowWidth > 1024  && scroll > 0 && <IconButton onClick={onScrollX} bg={"rgba(0,0,0,0.4)"} position="absolute" top="110" left="-5" borderRadius="50%" icon={<AiOutlineLeft color="white" />}>
           L
         </IconButton>}
 
@@ -100,7 +100,7 @@ function ImageCarousal() {
             </Box>
           ))}
         </Flex>
-        {windowWidth > 1024 && scroll <1600 && <IconButton  onClick={onScrollY} bg={"rgba(0,0,0,0.4)"}  position="absolute" top="100" right="-15" borderRadius="50%" icon={<AiOutlineRight color="white"/>}>
+        {windowWidth > 1024 && scroll <1800 && <IconButton  onClick={onScrollY} bg={"rgba(0,0,0,0.4)"}  position="absolute" top="110" right="-15" borderRadius="50%" icon={<AiOutlineRight color="white"/>}>
           
         </IconButton>}
       </Box>

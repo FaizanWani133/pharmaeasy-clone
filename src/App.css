@@ -37,16 +37,24 @@
   margin-top: .5rem;
  
 } */
+.link{
+  text-decoration: none;
 
+}
+.link:hover{
+  color: #10847E ;
+}
 .tabs{
   font-family:"inter",sans-serif;
   font-size: 14px;
   font-weight: 500;
  
-  
+}
+.noHover:hover{
+  color: rgba(0, 0, 0, .7);
 }
 .tabs:hover{
-  color: white;
+  color: #10847E;
 }
 .hideScroll::-webkit-scrollbar {
   display: none;

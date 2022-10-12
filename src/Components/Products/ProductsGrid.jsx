@@ -4,7 +4,7 @@ import ProductCard from "./ProductCard";
 
 function ProductsGrid({data}) {
   return (
-    <Grid width="100%" gridGap="20px" gridTemplateColumns={{base:"repeat(1,1fr)",sm:"repeat(2,1fr)",lg:"repeat(3,1fr)",xl:"repeat(3,1fr)"}}>
+    <Grid width="100%" gridGap="20px" justifyItems={"center"} gridTemplateColumns={{base:"repeat(1,1fr)",sm:"repeat(3,1fr)",lg:"repeat(4,1fr)",xl:"repeat(3,1fr)"}}>
       {data.map((el) => (
         <ProductCard
           image={el.img1}

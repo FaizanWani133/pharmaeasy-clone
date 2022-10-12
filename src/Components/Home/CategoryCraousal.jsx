@@ -92,7 +92,7 @@ function CategoryCraousal() {
             justifyContent={"space-between"}
             
           >
-            {categories.map((tab) => (<Link key={tab.title} to={tab.path} >
+            {categories.map((tab) => (<Link className='link' key={tab.title} to={tab.path} >
               <Box
                 
                 width={{ base: "100px", sm: "140px", lg: "180px" }}
@@ -116,6 +116,7 @@ function CategoryCraousal() {
                 ></Image>
   
                 <Text
+                textAlign={"center"}
                   
                   fontSize={{ base: "12px", sm: "15px", lg: "16px" }}
                   fontWeight="500"
