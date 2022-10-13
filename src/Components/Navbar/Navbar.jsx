@@ -260,6 +260,7 @@ function Navbar() {
         </DrawerContent>
       </Drawer>
     </Box>
+    <Box height="65px" width="100%"></Box>
     
     
 

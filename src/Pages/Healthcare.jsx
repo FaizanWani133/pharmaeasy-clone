@@ -16,7 +16,7 @@ function Healthcare() {
     
     <Tabs/>
     
-    <Box  width={"85%"} margin="120px auto">
+    <Box  width={"85%"} margin="80px auto">
     <HealthCareBreadcrumb/>
       <ImageCarousal />
     
