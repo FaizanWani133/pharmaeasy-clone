@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, Image, Input, Stack, useDisclosure, InputGroup, InputRightElement, Text, useToast, FormControl } from "@chakra-ui/react";
+import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, Image, Input, Stack, useDisclosure, InputGroup, InputRightElement, Text, useToast } from "@chakra-ui/react";
 
 
 
@@ -28,11 +28,11 @@ export const QuickRegister = () => {
 
     }
     // console.log(user);
-    const handleReg = async()=>{
+    const handleReg = async(e)=>{
+        e.preventDefault();
         let res = await fetch(`http://localhost:3001/Users`);
         let res2 = await res.json();
         // console.log(res2);
-
         let flag = false;
         res2.map((elem) => {
             if(elem.email === user.email){
@@ -40,35 +40,32 @@ export const QuickRegister = () => {
             }
         })
         try {
-            if(initState.name && initState.email && initState.passwor){
-                if(!flag){
-                    fetch(`http://localhost:3001/Users`,{
-                        method:'POST',
-                        body:JSON.stringify(user),
-                        headers:{
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                    toast({
-                        title: 'User Registered Successfully',
-                        status: 'success',
-                        duration: 3000,
-                        isClosable: true,
-                    });
-                }
-                else{
-                    toast({
-                        title: 'User Already Exists',
-                        status: "info",
-                        duration: 3000,
-                        isClosable: true,
-                    });
-                    
-                }
+            if(!flag){
+                fetch(`http://localhost:3001/Users`,{
+                    method:'POST',
+                    body:JSON.stringify(user),
+                    headers:{
+                        'Content-Type': 'application/json'
+                    }
+                })
+                toast({
+                    title: 'User Registered Successfully',
+                    status: 'success',
+                    duration: 3000,
+                    isClosable: true,
+                });
             }
-           
+            else{
+                toast({
+                    title: 'User Already Exists',
+                    status: "info",
+                    duration: 3000,
+                    isClosable: true,
+                });
+                
+            }
             
-        } 
+        }    
         catch (error) {
             console.log(error);   
         }
@@ -79,7 +76,7 @@ export const QuickRegister = () => {
     }
 
   return (
-    <FormControl  >
+    <>
         {!auth &&  <Text onClick={onOpen} color="black" cursor="pointer"  >/ Sign Up</Text>}
         <Drawer
             isOpen={isOpen}
@@ -143,6 +140,7 @@ export const QuickRegister = () => {
 
             <DrawerBody px="50px">
                 <Stack spacing="20px">
+                <form onSubmit={handleReg}>
                 <Box>
                     <FormLabel
                     htmlFor="phone"
@@ -164,7 +162,7 @@ export const QuickRegister = () => {
                         name="name"
                         value={user.name}
                         onChange={handleChange}
-                        isRequired
+                        required
                     />
                     <Input
                         h="2.8rem"
@@ -178,7 +176,8 @@ export const QuickRegister = () => {
                         name="email"
                         value={user.email}
                         onChange={handleChange}
-                        isRequired
+                        required
+                        
                     />
 
                     <InputGroup h="2.8rem">
@@ -192,7 +191,7 @@ export const QuickRegister = () => {
                         name="password"
                         value={user.password}
                         onChange={handleChange}
-                        isRequired
+                        required
                         />
                         <InputRightElement width="4.5rem">
                         <Button h="2rem" size="sm" onClick={handleClick}>
@@ -211,10 +210,11 @@ export const QuickRegister = () => {
                     bg="#0f847e"
                     color="#fff"
                     _hover={{ bg: "#159a94" }}
-                    onClick={handleReg}
+                    type="submit"
                 >
                     Register
                 </Button>
+                </form>
                 </Stack>
                 <Text fontSize="12px" color="#4f585e" py="20px">
                 By clicking continue, you agree with our{" "}
@@ -230,6 +230,6 @@ export const QuickRegister = () => {
             </DrawerBody>
             </DrawerContent>
         </Drawer>
-    </FormControl >
+    </ >
   )
 }
