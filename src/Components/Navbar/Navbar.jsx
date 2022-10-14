@@ -213,7 +213,7 @@ function Navbar() {
             {windowWidth < 1024 && windowWidth > 650 && <Box mt="2px" fontWeight="600" >Offers</Box>}
           </Box>
         </Link>
-        <Link className="hover_green">
+        <Link className="hover_green" to={"/cart"}>
           <Box display="flex" fontSize="14px">
             <Box display="flex" alignItems="center" mr="8px">
               <FiShoppingCart fontSize="20px" />
