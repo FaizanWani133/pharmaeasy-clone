@@ -40,7 +40,7 @@ export const QuickRegister = () => {
             }
         })
         try {
-            if(initState.name && initState.email && initState.passwor){
+            // if(initState.name && initState.email && initState.passwor){
                 if(!flag){
                     fetch(`http://localhost:3001/Users`,{
                         method:'POST',
@@ -68,7 +68,7 @@ export const QuickRegister = () => {
             }
            
             
-        } 
+        // } 
         catch (error) {
             console.log(error);   
         }

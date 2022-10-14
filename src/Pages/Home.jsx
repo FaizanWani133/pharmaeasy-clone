@@ -4,6 +4,7 @@ import TabCarousal from '../Components/Home/TabCarousal'
 import SearchBar from '../Components/Home/SearchBar'
 import Banner from '../Components/Home/Banner'
 import ImageCarousal from '../Components/Home/ImageCarousal'
+import CategoryCraousal from '../Components/Home/CategoryCraousal'
 
 
 function Home() {

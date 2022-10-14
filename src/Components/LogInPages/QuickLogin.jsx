@@ -45,7 +45,7 @@ export function LoginIndividualSlider() {
         })
 
         try {
-          if(initState.name && initState.email && initState.passwor){
+          if(initState.name && initState.email && initState.password){
               if(flag){
                 dispatch(getSuccess(true));
                 localStorage.setItem("isAuth", true);
