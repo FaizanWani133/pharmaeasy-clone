@@ -1,4 +1,4 @@
-import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, Image, Input, Stack, useDisclosure, InputGroup, InputRightElement, Text } from "@chakra-ui/react"
+import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, Image, Input, Stack, useDisclosure, InputGroup, InputRightElement, Text, useToast } from "@chakra-ui/react"
 import { useState, useRef } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getSuccess } from '../../Redux/Auth/action';
@@ -12,6 +12,8 @@ const initState ={
 export function LoginIndividualSlider() {
 
     const auth = localStorage.getItem("isAuth");
+    
+    const toast= useToast();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const firstField = useRef();
 
@@ -31,7 +33,7 @@ export function LoginIndividualSlider() {
     console.log(user);
   
     const handleLogin = async() =>{
-        let res = await fetch(`http://localhost:3000/Users`);
+        let res = await fetch(`http://localhost:3001/Users`);
         let res2 = await res.json();
         // console.log(res2);
 
@@ -43,21 +45,42 @@ export function LoginIndividualSlider() {
         })
 
         try {
-            if(flag){
-              dispatch(getSuccess(true));
-              localStorage.setItem("isAuth", true);
-              alert("Successfully LogIn");
-            }
-            else{
-              alert("Wrong Credentials!!")
-            }
-        } catch (error) {
+          if(initState.name && initState.email && initState.passwor){
+              if(flag){
+                dispatch(getSuccess(true));
+                localStorage.setItem("isAuth", true);
+                toast({
+                  title: 'User Logged in Successfully',
+                  status: 'success',
+                  duration: 3000,
+                  isClosable: true,
+                });
+              }
+              else{
+                toast({
+                  title: 'Wrong Credentials!!',
+                  status: 'success',
+                  duration: 3000,
+                  isClosable: true,
+                });
+              }
+          }
+          else{
+            toast({
+                title: 'Fill in the details',
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+            });
+          }  
+        } 
+        catch (error) {
             console.log(error);   
         }
         console.log(isAuth);
         
         setUser(initState)
-        
+        onClose();
     }
 
     console.log(auth);

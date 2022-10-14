@@ -1,28 +1,44 @@
-import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react"
-
-export function LogOut() {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const handleLogOut = () =>{
-        console.log("LogOut Called");
-        localStorage.clear();
-    }
-    
-    return (
-      <>
-        <Text color="black" onClick={onOpen}>User</Text>
+import { Text, AlertDialog, AlertDialogBody, AlertDialogCloseButton, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, Button, useDisclosure } from "@chakra-ui/react"
+import { useRef } from "react"
   
-        <Modal onClose={onClose} isOpen={isOpen} isCentered>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalCloseButton />
-            <ModalBody>
-              Are you sure you want to LOGOUT ?
-            </ModalBody>
-            <ModalFooter>
-              <Button onClick={handleLogOut }>Log Out</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      </>
-    )
+export function LogOut() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = useRef();
+
+  const handleLogOut = () =>{
+    // console.log("LogOut Called");
+    localStorage.clear();
+    onClose();
   }
+
+  return (
+    <>
+        <Text color="black" onClick={onOpen}>User</Text>
+      <AlertDialog
+        motionPreset='slideInBottom'
+        leastDestructiveRef={cancelRef}
+        onClose={onClose}
+        isOpen={isOpen}
+        isCentered
+      >
+        <AlertDialogOverlay />
+
+        <AlertDialogContent>
+          <AlertDialogHeader>Log Out?</AlertDialogHeader>
+          <AlertDialogCloseButton />
+          <AlertDialogBody>
+            Are you sure you want to <span color="#10847e">Log Out</span> ?
+          </AlertDialogBody>
+          <AlertDialogFooter>
+            <Button ref={cancelRef} onClick={onClose}>
+              No
+            </Button>
+            <Button bg='#10847e'color="white" ml={3} onClick={handleLogOut }>
+              Yes
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </>
+  )
+}

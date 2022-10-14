@@ -349,6 +349,18 @@
       "email": "tarun@test.com",
       "password": "123",
       "id": 2
+    },
+    {
+      "name": "xyz",
+      "email": "xyz@test.com",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "name": "nikita",
+      "email": "nik@test.com",
+      "password": "123",
+      "id": 4
     }
   ]
 }

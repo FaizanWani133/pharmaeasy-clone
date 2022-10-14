@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
-import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, Image, Input, Stack, useDisclosure, InputGroup, InputRightElement, Text } from "@chakra-ui/react";
-import { useDispatch } from 'react-redux';
+import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, Image, Input, Stack, useDisclosure, InputGroup, InputRightElement, Text, useToast, FormControl } from "@chakra-ui/react";
+
 
 
 const initState ={
@@ -12,6 +12,8 @@ const initState ={
 export const QuickRegister = () => {
 
     const auth = localStorage.getItem("isAuth");
+    
+    const toast= useToast();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const firstField = useRef();
     
@@ -19,7 +21,6 @@ export const QuickRegister = () => {
     const handleClick = () => setShow(!show);
     const [user, setUser] = useState(initState);
 
-    const dispatch = useDispatch();
 
     const handleChange = (e)=>{
         const {name, value } = e.target;
@@ -27,9 +28,8 @@ export const QuickRegister = () => {
 
     }
     // console.log(user);
-
     const handleReg = async()=>{
-        let res = await fetch(`http://localhost:3000/Users`);
+        let res = await fetch(`http://localhost:3001/Users`);
         let res2 = await res.json();
         // console.log(res2);
 
@@ -39,32 +39,48 @@ export const QuickRegister = () => {
                 flag = true;
             }
         })
-
         try {
-            if(!flag){
-                fetch(`http://localhost:3000/Users`,{
-                    method:'POST',
-                    body:JSON.stringify(user),
-                    headers:{
-                        'Content-Type': 'application/json'
-                    }
-                })
-                alert("Successfully Registered!!");
+            if(initState.name && initState.email && initState.passwor){
+                if(!flag){
+                    fetch(`http://localhost:3001/Users`,{
+                        method:'POST',
+                        body:JSON.stringify(user),
+                        headers:{
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    toast({
+                        title: 'User Registered Successfully',
+                        status: 'success',
+                        duration: 3000,
+                        isClosable: true,
+                    });
+                }
+                else{
+                    toast({
+                        title: 'User Already Exists',
+                        status: "info",
+                        duration: 3000,
+                        isClosable: true,
+                    });
+                    
+                }
             }
-            else{
-                alert("User already exist!!");
-                
-            }
-        } catch (error) {
+           
+            
+        } 
+        catch (error) {
             console.log(error);   
         }
+    
         setUser(initState)
         
+       onClose(); 
     }
 
   return (
-    <div>
-        {!auth ?  <Text onClick={onOpen} color="black" cursor="pointer"  >/ Sign Up</Text> : <Text onClick={onOpen} color="black" cursor="pointer"  >  </Text> }
+    <FormControl  >
+        {!auth &&  <Text onClick={onOpen} color="black" cursor="pointer"  >/ Sign Up</Text>}
         <Drawer
             isOpen={isOpen}
             placement="right"
@@ -148,11 +164,11 @@ export const QuickRegister = () => {
                         name="name"
                         value={user.name}
                         onChange={handleChange}
+                        isRequired
                     />
                     <Input
                         h="2.8rem"
                         ref={firstField}
-                        // id="email"
                         type="email"
                         pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"
                         letterSpacing=".2px"
@@ -162,6 +178,7 @@ export const QuickRegister = () => {
                         name="email"
                         value={user.email}
                         onChange={handleChange}
+                        isRequired
                     />
 
                     <InputGroup h="2.8rem">
@@ -175,6 +192,7 @@ export const QuickRegister = () => {
                         name="password"
                         value={user.password}
                         onChange={handleChange}
+                        isRequired
                         />
                         <InputRightElement width="4.5rem">
                         <Button h="2rem" size="sm" onClick={handleClick}>
@@ -212,6 +230,6 @@ export const QuickRegister = () => {
             </DrawerBody>
             </DrawerContent>
         </Drawer>
-    </div>
+    </FormControl >
   )
 }
