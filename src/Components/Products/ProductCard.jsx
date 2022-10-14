@@ -11,8 +11,9 @@ function ProductCard({ image, title, originalPrice, newPrice, offer,id }) {
       border="1px solid rgba(0,0,0,0.2)"
       padding={4}
       borderRadius="10px"
+      _hover={{border:"1px solid #10847E "}}
     >
-      <Link to={`/healthcare/product/${id}`}>
+      <Link className="noHover" to={`/healthcare/product/${id}`}>
         <Box height="216px">
           <Image height="100%" src={image} margin="0 auto"></Image>
         </Box>

@@ -1,15 +1,30 @@
 import { Box } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
+import HealthCareBreadcrumb from '../Components/Healthcare/Breadcrumb'
 import Cards from '../Components/Healthcare/Cards'
+import ImageCarousal from '../Components/Home/ImageCarousal'
+import Tabs from '../Components/Navbar/Tabs'
 
 
 function Healthcare() {
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   
   return (
-    <Box width={"85%"} margin="0 auto">
-      <Cards> 
-      </Cards>
-    </Box>
+    <>
+    
+    <Tabs/>
+    
+    <Box  width={"85%"} margin="80px auto">
+    <HealthCareBreadcrumb/>
+      <ImageCarousal />
+    
+      
+    <Cards> 
+    </Cards>
+  </Box></>
+    
     
   )
 }

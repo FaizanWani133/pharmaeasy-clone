@@ -30,6 +30,8 @@ import { IoBagOutline, IoFlaskOutline, IoWalletOutline,} from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import NavSearch from "./NavSearch";
 import Tabs from "./Tabs";
+import { QuickRegister } from "../LogInPages/QuickRegister";
+import { LoginIndividualSlider } from "../LogInPages/QuickLogin";
 
 
 function Navbar() {
@@ -109,7 +111,8 @@ function Navbar() {
     };
   }, []);
   return (
-    <Box>
+    <Box position={"relative"}>
+      {scrollPosition > 200 && <Tabs/>}
     <Box
       p="12px 40px 10px 40px"
       position="fixed"
@@ -199,7 +202,7 @@ function Navbar() {
               <Box display="flex" alignItems="center" mr="10px">
                 <AiOutlineUser fontSize="20px" />
               </Box>
-              {windowWidth > 1104 && <Box mt="2px" fontWeight="600">Hello, Log in</Box>}
+              {windowWidth > 1104 && <Box mt="2px" fontWeight="600"><LoginIndividualSlider /> <QuickRegister /></Box>}
             </Box>
           </Link>
         )}
@@ -212,7 +215,7 @@ function Navbar() {
             {windowWidth < 1024 && windowWidth > 650 && <Box mt="2px" fontWeight="600" >Offers</Box>}
           </Box>
         </Link>
-        <Link className="hover_green">
+        <Link className="hover_green" to={"/cart"}>
           <Box display="flex" fontSize="14px">
             <Box display="flex" alignItems="center" mr="8px">
               <FiShoppingCart fontSize="20px" />
@@ -239,7 +242,7 @@ function Navbar() {
               </Box>
               <Box fontSize="13px" ml="15px" display="flex" flexDir="column" justifyContent="space-between" color="white">
                 <Box fontSize="15px">Hi, there !</Box>
-                <Box>Log In / Sign Up</Box>
+                <Box><QuickRegister /></Box>
               </Box>
 
             </Box>
@@ -259,10 +262,11 @@ function Navbar() {
         </DrawerContent>
       </Drawer>
     </Box>
-    <Box height="65px" width="100%" pos="relative">
-    {scrollPosition > 200 && <Tabs/>}
+    <Box height="65px" width="100%"></Box>
+    
+    
 
-    </Box>
+    
     
     </Box>
   );

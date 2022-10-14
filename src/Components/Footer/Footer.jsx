@@ -1,6 +1,6 @@
 import { Img } from '@chakra-ui/image';
-import { Box, Flex, Grid, GridItem, Heading, Text, VStack } from '@chakra-ui/layout'
-import { repeat } from 'lodash';
+import { Box, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/layout'
+
 import {
     Accordion,
     AccordionItem,
@@ -133,7 +133,7 @@ const Footer = () => {
         </Box>
     </Accordion>
     {/* // for big screen code */}
-   <Grid gridTemplateColumns="repeat(11,1fr)" fontFamily="Inter,sans-serif" w="95%" m="auto" display={{base:"none",md:"none",lg:"grid"}}>
+   <Grid textAlign="start" gridTemplateColumns="repeat(11,1fr)" fontFamily="Inter,sans-serif" w="95%" m="auto" display={{base:"none",md:"none",lg:"grid"}}>
     <GridItem colSpan={3} mr={3}>
         <Box>
             <Box>
