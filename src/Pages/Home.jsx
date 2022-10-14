@@ -2,7 +2,6 @@ import { Box } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import TabCarousal from '../Components/Home/TabCarousal'
 import SearchBar from '../Components/Home/SearchBar'
-import CategoryCraousal from '../Components/Home/CategoryCraousal'
 import Banner from '../Components/Home/Banner'
 import ImageCarousal from '../Components/Home/ImageCarousal'
 
