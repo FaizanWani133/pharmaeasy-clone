@@ -3,13 +3,9 @@ import { Route, Routes } from 'react-router-dom'
 import Cart from './Cart'
 import Healthcare from './Healthcare'
 import Home from './Home'
-<<<<<<< HEAD
-import Products from './Products'
-=======
 import NotFound from './NotFound'
 import Products from './Products'
 import Search from './Search'
->>>>>>> 80d69a9fa6ed6a537c7bb22ae9f8fbe0373af0cf
 import SingleProduct from './SingleProduct'
 
 function AllRoutes() {
