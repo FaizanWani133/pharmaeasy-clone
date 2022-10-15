@@ -20,6 +20,7 @@ function AllRoutes() {
         <Route path='*' element={<NotFound/>}></Route>
         <Route path='/search/:name' element={<Search/>}></Route>
         <Route path="/cart" element={<Cart/>}></Route>
+        
     </Routes>
 
   )
