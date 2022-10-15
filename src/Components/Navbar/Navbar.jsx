@@ -30,7 +30,6 @@ import { IoBagOutline, IoFlaskOutline, IoWalletOutline,} from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import NavSearch from "./NavSearch";
 import Tabs from "./Tabs";
-import { QuickRegister } from "../LogInPages/QuickRegister";
 import { LoginIndividualSlider } from "../LogInPages/QuickLogin";
 
 
@@ -202,7 +201,7 @@ function Navbar() {
               <Box display="flex" alignItems="center" mr="10px">
                 <AiOutlineUser fontSize="20px" />
               </Box>
-              {windowWidth > 1104 && <Box mt="2px" fontWeight="600"><LoginIndividualSlider /> <QuickRegister /></Box>}
+              {windowWidth > 1104 && <Box mt="2px" fontWeight="600"><LoginIndividualSlider /></Box>}
             </Box>
           </Link>
         )}
@@ -242,7 +241,7 @@ function Navbar() {
               </Box>
               <Box fontSize="13px" ml="15px" display="flex" flexDir="column" justifyContent="space-between" color="white">
                 <Box fontSize="15px">Hi, there !</Box>
-                <Box><QuickRegister /></Box>
+                <Box><LoginIndividualSlider /></Box>
               </Box>
 
             </Box>

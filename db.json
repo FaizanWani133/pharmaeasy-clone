@@ -631,6 +631,18 @@
       "email": "eve.holt@reqres.in",
       "password": "cityslicka",
       "id": 1
+    },
+    {
+      "name": "Nikita",
+      "email": "niki@test.com",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "name": "lolodile",
+      "email": "lolo@tsest.com",
+      "password": "123",
+      "id": 3
     }
   ]
 }
