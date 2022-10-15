@@ -14,10 +14,6 @@
     "bootstrap": "^5.2.2",
 
     "axios": "^1.1.2",
-<<<<<<< HEAD
-=======
-
->>>>>>> f6cb873a9cfb726da81fb34e48eee0b1b2d15c74
     "framer-motion": "^7.5.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
