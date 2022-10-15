@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getSuccess } from '../../Redux/Auth/action';
 import { LogOut } from "./LogOut";
+import { QuickRegister } from "./QuickRegister";
 
 const initState ={
   email:"",
@@ -59,11 +60,11 @@ export function LoginIndividualSlider() {
           else{
             toast({
               title: 'Wrong Credentials!!',
-              status: 'error',
+              status: 'success',
               duration: 3000,
               isClosable: true,
             });
-          } 
+          }
         } 
         catch (error) {
             console.log(error);   
@@ -139,8 +140,8 @@ export function LoginIndividualSlider() {
   
             <DrawerBody px="50px">
               <Stack spacing='20px'>
-                <form onSubmit={handleLogin}>
-                  <Box>
+              <form onSubmit={handleLogin}>
+              <Box>
                     <FormLabel
                         htmlFor="phone"
                         fontWeight="700"
@@ -163,6 +164,7 @@ export function LoginIndividualSlider() {
                         value={user.email}
                         onChange={handleChange}
                         required
+
                     />
 
                     <InputGroup h="2.8rem">
@@ -177,6 +179,7 @@ export function LoginIndividualSlider() {
                         value={user.password}
                         onChange={handleChange}
                         required
+                        
                         />
                         <InputRightElement width="4.5rem">
                         <Button h="2rem" size="sm" onClick={handleClick}>
@@ -188,12 +191,12 @@ export function LoginIndividualSlider() {
                     </Stack>
                 </Box>
                 <Button 
-                   w="100%"
-                   h="2.8rem"
-                   variant="#0f847e"
-                   bg="#0f847e"
-                   color="#fff"
-                   _hover={{ bg: "#159a94" }}
+                    w="100%"
+                    h="2.8rem"
+                    variant="#0f847e"
+                    bg="#0f847e"
+                    color="#fff"
+                    _hover={{ bg: "#159a94" }}
                     type="submit"
                     mt="15px"
                 >
@@ -208,6 +211,10 @@ export function LoginIndividualSlider() {
                     Privacy Policy
                 </span>
               </Text>
+              <Flex align="center" justify='center'>
+                 <QuickRegister color={'#159a94'} font={'13px'} onClick={onClose}/>
+                
+              </Flex>
             </DrawerBody>
           </DrawerContent>
         </Drawer>

@@ -1,14 +1,6 @@
 import { Box, Center, Flex, Heading, Image, Radio, RadioGroup, Square, Stack, Text } from '@chakra-ui/react'
 import React from 'react';
 
-function Feature({ title, desc, ...rest }) {
-    return (
-      <Box p={5} shadow='md' borderWidth='1px' {...rest}>
-        
-        
-      </Box>
-    )
-  }
 export const ExpressDelivery = () => {
   return (
     <Flex w="70%" m="auto" justifyContent="space-between"  mt="30px" mb="30px">
