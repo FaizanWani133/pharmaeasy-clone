@@ -1,8 +1,6 @@
 import { useState, useRef } from 'react'
 import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, Image, Input, Stack, useDisclosure, InputGroup, InputRightElement, Text, useToast, FormControl } from "@chakra-ui/react";
 
-
-
 const initState ={
     name:"",
     email:"",
@@ -228,10 +226,6 @@ export const QuickRegister = () => {
                     Privacy Policy
                 </span>
                 </Text>
-                {/* <Flex align="center" justify='center'>
-                <Text fontSize='13px' pr='10px'>Already registered?</Text>
-                <LoginIndividualSlider color={'#159a94'} font={'13px'}/>
-                </Flex> */}
             </DrawerBody>
             </DrawerContent>
         </Drawer>

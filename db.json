@@ -637,6 +637,12 @@
       "email": "niki@test.com",
       "password": "123",
       "id": 2
+    },
+    {
+      "name": "lolodile",
+      "email": "lolo@tsest.com",
+      "password": "123",
+      "id": 3
     }
   ]
 }

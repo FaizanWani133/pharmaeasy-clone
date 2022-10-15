@@ -242,7 +242,7 @@ function Navbar() {
               </Box>
               <Box fontSize="13px" ml="15px" display="flex" flexDir="column" justifyContent="space-between" color="white">
                 <Box fontSize="15px">Hi, there !</Box>
-                <Box><QuickRegister /></Box>
+                <Box><LoginIndividualSlider /></Box>
               </Box>
 
             </Box>
