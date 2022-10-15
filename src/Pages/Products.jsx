@@ -183,7 +183,7 @@ console.log(search.get("brand"));
                   <Checkbox colorScheme="green" onChange={()=>{
                     
                     if(filters.includes("dettol")){
-                      setFilters(filters.filter(el=>el!="dettol"))
+                      setFilters(filters.filter(el=>el!=="dettol"))
                     }else{
                       setFilters([...filters,"dettol"])
                     }
@@ -197,7 +197,7 @@ console.log(search.get("brand"));
                   <Checkbox colorScheme="green" onChange={()=>{
                     
                     if(filters.includes("everhub")){
-                      setFilters(filters.filter(el=>el!="everhub"))
+                      setFilters(filters.filter(el=>el!=="everhub"))
                     }else{
                       setFilters([...filters,"everhub"])
                     }
@@ -211,7 +211,7 @@ console.log(search.get("brand"));
                   <Checkbox colorScheme="green" onChange={()=>{
                     
                     if(filters.includes("savlon")){
-                      setFilters(filters.filter(el=>el!="savlon"))
+                      setFilters(filters.filter(el=>el!=="savlon"))
                     }else{
                       setFilters([...filters,"savlon"])
                     }
@@ -225,7 +225,7 @@ console.log(search.get("brand"));
                   <Checkbox colorScheme="green" onChange={()=>{
                     
                     if(filters.includes("PHARMEASY")){
-                      setFilters(filters.filter(el=>el!="PHARMEASY"))
+                      setFilters(filters.filter(el=>el!=="PHARMEASY"))
                     }else{
                       setFilters([...filters,"PHARMEASY"])
                     }
@@ -239,7 +239,7 @@ console.log(search.get("brand"));
                   <Checkbox colorScheme="green" onChange={()=>{
                     
                     if(filters.includes("revital")){
-                      setFilters(filters.filter(el=>el!="revital"))
+                      setFilters(filters.filter(el=>el!=="revital"))
                     }else{
                       setFilters([...filters,"revital"])
                     }

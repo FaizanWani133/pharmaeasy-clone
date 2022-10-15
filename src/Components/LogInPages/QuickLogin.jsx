@@ -32,7 +32,8 @@ export function LoginIndividualSlider() {
     }
     console.log(user);
   
-    const handleLogin = async() =>{
+    const handleLogin = async(e) =>{
+      e.preventDefault();
         let res = await fetch(`http://localhost:3001/Users`);
         let res2 = await res.json();
         // console.log(res2);
@@ -45,34 +46,24 @@ export function LoginIndividualSlider() {
         })
 
         try {
-          if(initState.name && initState.email && initState.password){
-              if(flag){
-                dispatch(getSuccess(true));
-                localStorage.setItem("isAuth", true);
-                toast({
-                  title: 'User Logged in Successfully',
-                  status: 'success',
-                  duration: 3000,
-                  isClosable: true,
-                });
-              }
-              else{
-                toast({
-                  title: 'Wrong Credentials!!',
-                  status: 'success',
-                  duration: 3000,
-                  isClosable: true,
-                });
-              }
+          if(flag){
+            dispatch(getSuccess(true));
+            localStorage.setItem("isAuth", true);
+            toast({
+              title: 'User Logged in Successfully',
+              status: 'success',
+              duration: 3000,
+              isClosable: true,
+            });
           }
           else{
             toast({
-                title: 'Fill in the details',
-                status: 'success',
-                duration: 3000,
-                isClosable: true,
+              title: 'Wrong Credentials!!',
+              status: 'success',
+              duration: 3000,
+              isClosable: true,
             });
-          }  
+          }
         } 
         catch (error) {
             console.log(error);   
@@ -148,7 +139,8 @@ export function LoginIndividualSlider() {
   
             <DrawerBody px="50px">
               <Stack spacing='20px'>
-                <Box>
+              <form onSubmit={handleLogin}>
+              <Box>
                     <FormLabel
                         htmlFor="phone"
                         fontWeight="700"
@@ -170,6 +162,8 @@ export function LoginIndividualSlider() {
                         name="email"
                         value={user.email}
                         onChange={handleChange}
+                        required
+
                     />
 
                     <InputGroup h="2.8rem">
@@ -183,6 +177,7 @@ export function LoginIndividualSlider() {
                         name="password"
                         value={user.password}
                         onChange={handleChange}
+                        required
                         
                         />
                         <InputRightElement width="4.5rem">
@@ -200,10 +195,12 @@ export function LoginIndividualSlider() {
                     bg="#0f847e"
                     color="#fff"
                     _hover={{ bg: "#159a94" }}
-                    onClick={handleLogin}
+                    type="submit"
+                    mt="15px"
                 >
                     Login
                 </Button>
+              </form>
               </Stack>
               <Text fontSize="12px" color="#4f585e" py="20px">
                 By clicking continue, you agree with our{" "}
