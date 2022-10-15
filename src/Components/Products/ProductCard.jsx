@@ -34,12 +34,12 @@ function ProductCard({ image, title, originalPrice, newPrice, offer,id }) {
               <span
                 style={{ textDecoration: "line-through", marginLeft: "5px" }}
               >
-                ${originalPrice}
+                ₹{originalPrice}
               </span>
             </Text>
             <Badge colorScheme='red'>{offer}%</Badge>
           </HStack>
-          <Text textAlign="left" fontWeight={"500"}> $ {newPrice}</Text>
+          <Text textAlign="left" fontWeight={"500"}> ₹ {newPrice}</Text>
         </Box>
       </Link>
     </Box>

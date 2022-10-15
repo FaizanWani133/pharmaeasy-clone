@@ -29,8 +29,8 @@ function OrderSummary() {
             <Divider/>
             <VStack width={"100%"} >
             <Text width={"100%"} textAlign={"left"} fontWeight="500"> Order Summary</Text>
-            <HStack width={"100%"} justify={"space-between"}><Text fontSize={"14px"}>Cart Value</Text><Text>$ 500</Text></HStack>
-            <HStack width={"100%"} justify={"space-between"}><Text fontSize={"14px"}>Amount to be paid</Text><Text>$ 500</Text></HStack>
+            <HStack width={"100%"} justify={"space-between"}><Text fontSize={"14px"}>Cart Value</Text><Text>₹ 500</Text></HStack>
+            <HStack width={"100%"} justify={"space-between"}><Text fontSize={"14px"}>Amount to be paid</Text><Text>₹ 500</Text></HStack>
             </VStack>
             
         </VStack>
