@@ -1,6 +1,11 @@
-const SingleProductBreadCumb = () => {
+import { ChevronRightIcon } from "@chakra-ui/icons";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+
+const SingleProductBreadCumb = (props) => {
+  const {title} = props; 
     return (
-    <Breadcrumb  fontSize="12px"spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
+    <Breadcrumb color="gray.600" fontSize="14px"spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
       <BreadcrumbItem>
         <BreadcrumbLink  ><Link to={"/"}>Home</Link></BreadcrumbLink>
       </BreadcrumbItem>
@@ -8,8 +13,11 @@ const SingleProductBreadCumb = () => {
         <BreadcrumbLink ><Link to={"/healthcare"}>Healthcare</Link></BreadcrumbLink>
       </BreadcrumbItem>
       <BreadcrumbItem isCurrentPage>
-        <BreadcrumbLink >{cat}</BreadcrumbLink>
+        <Text width="150px" textOverflow="ellipsis" overflow="hidden" whiteSpace="nowrap">
+        <BreadcrumbLink >{title}</BreadcrumbLink>
+        </Text>
       </BreadcrumbItem>
     </Breadcrumb>
     )
 }
+export default SingleProductBreadCumb;
