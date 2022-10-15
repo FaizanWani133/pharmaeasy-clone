@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getSuccess } from '../../Redux/Auth/action';
 import { LogOut } from "./LogOut";
+import { QuickRegister } from "./QuickRegister";
 
 const initState ={
   email:"",
@@ -190,6 +191,7 @@ export function LoginIndividualSlider() {
                     </Stack>
                 </Box>
                 <Button 
+                    w="100%"
                     h="2.8rem"
                     variant="#0f847e"
                     bg="#0f847e"
@@ -209,6 +211,10 @@ export function LoginIndividualSlider() {
                     Privacy Policy
                 </span>
               </Text>
+              <Flex align="center" justify='center'>
+                 <QuickRegister color={'#159a94'} font={'13px'} onClick={onClose}/>
+                
+              </Flex>
             </DrawerBody>
           </DrawerContent>
         </Drawer>

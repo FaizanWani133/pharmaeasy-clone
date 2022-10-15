@@ -202,7 +202,7 @@ function Navbar() {
               <Box display="flex" alignItems="center" mr="10px">
                 <AiOutlineUser fontSize="20px" />
               </Box>
-              {windowWidth > 1104 && <Box mt="2px" fontWeight="600"><LoginIndividualSlider /> <QuickRegister /></Box>}
+              {windowWidth > 1104 && <Box mt="2px" fontWeight="600"><LoginIndividualSlider /></Box>}
             </Box>
           </Link>
         )}

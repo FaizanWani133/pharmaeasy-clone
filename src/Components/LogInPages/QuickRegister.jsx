@@ -77,7 +77,13 @@ export const QuickRegister = () => {
 
   return (
     <FormControl  >
-        {!auth &&  <Text onClick={onOpen} color="black" cursor="pointer"  >/ Sign Up</Text>}
+        {!auth &&  <Text onClick={onOpen} fontSize="18px" color="#4f585e" py="20px">
+                Don't have an account ? 
+                <span style={{ color: "#159a94", cursor: "pointer" }}>
+                    {" "}
+                    Sign Up
+                </span>
+              </Text>}
         <Drawer
             isOpen={isOpen}
             placement="right"
