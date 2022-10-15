@@ -17,6 +17,12 @@
       "email": "tarun@test.com",
       "password": "123",
       "id": 3
+    },
+    {
+      "name": "Nikita",
+      "email": "abc@test.com",
+      "password": "123",
+      "id": 4
     }
   ],
   "Products": [

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { ExpressDelivery } from './ExpressDelivery'
 import Healthcare from './Healthcare'
 import Home from './Home'
 import NotFound from './NotFound'
@@ -17,7 +16,6 @@ function AllRoutes() {
         <Route path='/healthcare/product/:id' element={<SingleProduct/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>
         <Route path='/search/:name' element={<Search/>}></Route>
-        <Route path='/delivery' element={<ExpressDelivery/>}></Route>
     </Routes>
 
   )
