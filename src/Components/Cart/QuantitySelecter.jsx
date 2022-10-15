@@ -3,7 +3,7 @@ import React from 'react'
 
 function QuantitySelecter() {
   return (
-    <Select width="100px" placeholder='Qty'>
+    <Select width="100px" colorScheme={"teal"} fontWeight={"500"} placeholder='Qty'>
   <option value='1'>1</option>
   <option value='2'>2</option>
   <option value='3'>3</option>

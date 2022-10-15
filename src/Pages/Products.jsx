@@ -44,7 +44,7 @@ function Products() {
   const catSplit = newCat.join(" ");
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useSearchParams();
-  const [orderBy,setOrderBy] = useState("");
+  const [orderBy,setOrderBy] = useState(search.get("orderBy")||"");
   const arr = [];
   const [page, setPage] = useState(getCurrPage(search.get("page")) || 1);
   
