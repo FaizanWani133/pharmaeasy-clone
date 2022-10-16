@@ -39,13 +39,13 @@ function CartProduct({ data }) {
           <VStack>
             <HStack>
               <Text fontSize={"12px"} textDecor={"line-through"}>
-                $ 540
+              ₹ 540
               </Text>
               <Text fontSize={"12px"} color="red">
                 30% OFF
               </Text>
             </HStack>
-            <Text textAlign={"right"} fontSize={"14px"} fontWeight="600">$ 542</Text>
+            <Text textAlign={"right"} fontSize={"14px"} fontWeight="600">₹ 542</Text>
           </VStack>
         </HStack>
         <Text  fontSize={"14px"} color="rgba(0,0,0,0.6)">
