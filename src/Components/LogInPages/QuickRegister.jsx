@@ -52,6 +52,7 @@ export const QuickRegister = () => {
                         status: 'success',
                         duration: 3000,
                         isClosable: true,
+                        position: "top",
                     });
                 }
                 else{
@@ -60,6 +61,7 @@ export const QuickRegister = () => {
                         status: "info",
                         duration: 3000,
                         isClosable: true,
+                        position: "top",
                     });
                     
                 }

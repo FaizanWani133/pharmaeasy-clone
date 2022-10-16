@@ -1,39 +1,30 @@
 import { Box, Button, Flex, Heading, Image, Radio, RadioGroup, Stack, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react'
 import React from 'react';
-import { AiFillRightCircle } from 'react-icons/ai';
-import { NavLink } from 'react-router-dom';
-export const Delivery = () => {
+
+export const Payment = () => {
   return (
     <Flex w="70%" m="auto" justifyContent="space-between"  mt="30px" mb="30px" flexDirection={{xl: "row", xs:"column", sm:"column", md:"column", lg:"row"}}>
-        <Box  w={{xl: "60%", xs:"100%", sm:"100%", md:"100%", lg:"60%"}}>
-            <Stack spacing={8} direction='column'>
-                <Flex alignItems="end" p={5} shadow='md' bg="#ecf2ff"  borderRadius="7px">
-                    <Box >
-                        <Heading fontSize='xl' color="#4f585e">Hey there!</Heading>
-                        <Text mt={4} fontSize='xl' color="#889dad">Choose Express delivery to get your order quicker!</Text>    
-                    </Box>
-                </Flex>
-                <RadioGroup defaultValue='1'>
-                    <Box p={5} borderRadius="7px" mt={4} _hover={{ border: "1px solid #159a94" }} >
-                        <Flex>
-                            <Radio colorScheme='green' value='1'></Radio>
-                            <Box ml='20px'>
-                                <Heading fontSize='xl' color="#4f585e">Tommorrow, before 10:00 pm </Heading>
-                                <Flex mt="6px">
-                                    <Image src="https://assets.pharmeasy.in/apothecary/images/ic_express%20delivery.svg?dim=16x0" />
-                                    <Text fontSize="13px" > Express Delivery | ₹ 0 </Text>  
-                                </Flex>
-                                
-                           </Box>
-                        </Flex>         
-                    </Box>
-                </RadioGroup>
-            </Stack>
+        <Box  w={{xl: "70%", xs:"100%", sm:"100%", md:"100%", lg:"60%"}} border="1px solid black">
+            <Box>
+                <Heading w='100%'  p="10px" color="#8897a2">Offers</Heading>
+               
+                    <Flex>
+                        <Image w="65px" p="10px" src="https://cdn.pharmeasy.in/payments/wallet_icons/paytm.png" alt="logo"/>
+                        <Flex flexDirection="row">
+                            <Heading  p="10px" color="#8897a2" > Paytm Wallet </Heading>
+                            <Radio value='1' ></Radio>
+                        </Flex>
+                        <Text>Minimumof Rs.15 cashback upto Rs.300. Valid once per user & on orders above Rs.599</Text>
+                    </Flex>
+               
+            </Box>
+            <Box>
+                <Heading w='100%'  p="10px" color="#8897a2">Other Options</Heading>
+            </Box>
         </Box>
-        <Box w={{xl: "30%", xs:"100%", sm:"100%", md:"100%", lg:"30%"}}>
-           <NavLink to="/payment"> <Button w='100%' display="flex"  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} ><Text mr="10px"> Proceed to Pay </Text> <AiFillRightCircle w="50px"/></Button></NavLink>
-            <Box display={{xl:"block",xs:"none", sm:"none", md:"none", lg:"none"}}>
-                <Heading fontSize='xl' color="#889dad" p="10px" >Order Summary</Heading>
+        <Box display={{xl:"block",xs:"none", sm:"none", md:"none", lg:"none"}} border="1px solid black">
+           <Heading w='100%' fontSize='xl' p="10px" color="#8897a2" > Price Breakdown </Heading>
+            <Box >
                 <Flex justifyContent="space-between" p="10px">
                     <Text fontSize='l' color="#4f585e">Cart Value</Text>
                     <Flex>
