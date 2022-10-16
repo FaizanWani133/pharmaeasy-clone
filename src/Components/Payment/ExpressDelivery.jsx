@@ -37,20 +37,20 @@ export const Delivery = () => {
                 <Flex justifyContent="space-between" p="10px">
                     <Text fontSize='l' color="#4f585e">Cart Value</Text>
                     <Flex>
-                        <Heading fontSize='l' as="s" color="#8897a2">₹ 465.00</Heading>
-                        <Heading fontSize='l' color="#4f585e">₹ 385.95 </Heading> 
+                        <Heading fontSize='l' as="s" color="#8897a2" mr="5px">₹465.00</Heading>
+                        <Heading fontSize='l' color="#4f585e">₹385.95 </Heading> 
                     </Flex>
                 </Flex>
                 <Flex justifyContent="space-between" p="10px">
                     <Text fontSize='l' color="#4f585e">Delivery charges</Text>
                     <Flex>
-                        <Heading fontSize='l' as="s" color="#8897a2" mr="5px">₹ 99.00</Heading>
-                        <Heading fontSize='l' color="#4f585e">₹ 75.00 </Heading> 
+                        <Heading fontSize='l' as="s" color="#8897a2" mr="5px">₹99.00</Heading>
+                        <Heading fontSize='l' color="#4f585e">₹75.00 </Heading> 
                     </Flex>
                 </Flex>
                 <Flex justifyContent="space-between" p="10px">
                     <Text fontSize='l' color="#4f585e">Cart Value</Text>
-                    <Heading fontSize='l' color="#4f585e">₹ 460.95 </Heading> 
+                    <Heading fontSize='l' color="#4f585e">₹460.95 </Heading> 
                     
                 </Flex>   
                 <Accordion defaultIndex={[0]} allowMultiple border="2px dotted #3bb896" borderRadius="7px" bg="#f2fff8" p={3} mt="20px">
@@ -60,7 +60,7 @@ export const Delivery = () => {
                             <Box flex='1' textAlign='left' justifyContent="space-around" w="100%">
                                 <Flex justifyContent="space-between" color="#3bb896">
                                     <Image w="20px" pr={1} src="https://cdn-icons-png.flaticon.com/512/1490/1490817.png" alt="icon" />
-                                    Total savings of <span> ₹ 103.5 </span> on this order         
+                                    Total savings of <Text fontWeight="bold" mr="5px" ml="5px"> ₹103.5 </Text> on this order         
                                 </Flex>
                             </Box>
                             <AccordionIcon color="#3bb896" />
@@ -69,11 +69,11 @@ export const Delivery = () => {
                         <AccordionPanel pb={4}>
                             <Flex justifyContent="space-between" color="#3bb896">
                                 <Text fontSize='xs'> MRP. Discount 17.00%</Text>
-                                <Text fontSize='xs'>₹ 79.5</Text>
+                                <Text fontSize='xs'>₹79.5</Text>
                             </Flex>
                             <Flex justifyContent="space-between" color="#3bb896">
                                     <Text fontSize='xs'> Delivery Charges Waiver</Text>
-                                    <Text fontSize='xs'>₹ 24.00</Text>
+                                    <Text fontSize='xs'>₹24.00</Text>
                             </Flex>
                         </AccordionPanel>
                     </AccordionItem>
