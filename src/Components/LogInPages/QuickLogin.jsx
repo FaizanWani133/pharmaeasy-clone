@@ -55,14 +55,16 @@ export function LoginIndividualSlider() {
               status: 'success',
               duration: 3000,
               isClosable: true,
+              position: "top",
             });
           }
           else{
             toast({
-              title: 'Wrong Credentials!!',
-              status: 'success',
+              title: 'Wrong Credentials! ',
+              status: 'error',
               duration: 3000,
               isClosable: true,
+              position: "top",
             });
           }
         } 
