@@ -1,10 +1,13 @@
 import { Box, Button, Flex, Heading, Image, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react'
 import React from 'react';
+import { Order } from './Order';
+import { UpiPayment } from './UpiPayment';
 
 export const Payment = () => {
+    
   return (
     <Flex w="70%" m="auto" justifyContent="space-between"  mt="30px" mb="30px" flexDirection={{xl: "row", xs:"column", sm:"column", md:"column", lg:"row"}}>
-        <Box  w="700px" border="1px solid black">
+        <Box  w="700px">
             {/* Offers */}
             <Box>
                 <Heading w='100%'  p="10px" color="#4f585e" fontSize="x-large">Offers</Heading>
@@ -25,7 +28,8 @@ export const Payment = () => {
                                 </AccordionButton>
                                 </h2>
                                 <AccordionPanel pb={4}>
-                                <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                                {/* <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button> */}
+                                <Order />
                                 </AccordionPanel>
                             </AccordionItem>
                         </Accordion>
@@ -46,7 +50,7 @@ export const Payment = () => {
                                 </AccordionButton>
                                 </h2>
                                 <AccordionPanel pb={4}>
-                                <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                                <Order />
                                 </AccordionPanel>
                             </AccordionItem>
                         </Accordion>
@@ -67,7 +71,7 @@ export const Payment = () => {
                                 </AccordionButton>
                                 </h2>
                                 <AccordionPanel pb={4}>
-                                <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                                    <Order />
                                 </AccordionPanel>
                             </AccordionItem>
                         </Accordion>
@@ -100,7 +104,8 @@ export const Payment = () => {
                             </AccordionButton>
                             </h2>
                             <AccordionPanel pb={4}>
-                            <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                                
+                            <UpiPayment />
                             </AccordionPanel>
                         </AccordionItem>
                     </Accordion>
@@ -175,7 +180,7 @@ export const Payment = () => {
                             </AccordionButton>
                             </h2>
                             <AccordionPanel pb={4}>
-                            <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                                <Order />
                             </AccordionPanel>
                         </AccordionItem>
                     </Accordion>
@@ -196,7 +201,7 @@ export const Payment = () => {
                             </AccordionButton>
                             </h2>
                             <AccordionPanel pb={4}>
-                            <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                                <Order />
                             </AccordionPanel>
                         </AccordionItem>
                     </Accordion>
@@ -204,7 +209,7 @@ export const Payment = () => {
             </Box>
         </Box>
     {/* Right */}
-        {/* <Box w="400px" display={{xl:"block",xs:"none", sm:"none", md:"none", lg:"none"}} border="1px solid black">
+        <Box w="400px" display={{xl:"block",xs:"none", sm:"none", md:"none", lg:"none"}} >
            <Heading w='100%' fontSize='xl' p="10px" color="#8897a2" > Price Breakdown </Heading>
             <Box >
                 <Flex justifyContent="space-between" p="10px">
@@ -253,7 +258,7 @@ export const Payment = () => {
                 </Accordion>
             </Box>
             
-        </Box> */}
+        </Box>
     </Flex>
   )
 }
