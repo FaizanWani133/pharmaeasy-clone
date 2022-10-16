@@ -1,28 +1,210 @@
-import { Box, Button, Flex, Heading, Image, Radio, RadioGroup, Stack, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, Image, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react'
 import React from 'react';
 
 export const Payment = () => {
   return (
     <Flex w="70%" m="auto" justifyContent="space-between"  mt="30px" mb="30px" flexDirection={{xl: "row", xs:"column", sm:"column", md:"column", lg:"row"}}>
-        <Box  w={{xl: "70%", xs:"100%", sm:"100%", md:"100%", lg:"60%"}} border="1px solid black">
+        <Box  w="700px" border="1px solid black">
+            {/* Offers */}
             <Box>
-                <Heading w='100%'  p="10px" color="#8897a2">Offers</Heading>
+                <Heading w='100%'  p="10px" color="#4f585e" fontSize="x-large">Offers</Heading>
                
-                    <Flex>
-                        <Image w="65px" p="10px" src="https://cdn.pharmeasy.in/payments/wallet_icons/paytm.png" alt="logo"/>
-                        <Flex flexDirection="row">
-                            <Heading  p="10px" color="#8897a2" > Paytm Wallet </Heading>
-                            <Radio value='1' ></Radio>
-                        </Flex>
-                        <Text>Minimumof Rs.15 cashback upto Rs.300. Valid once per user & on orders above Rs.599</Text>
+                    <Flex flexDirection="row" p={3}>
+                        <Box>
+                            <Image mt="20px" mr="20px" w="60px" p="5px" src="https://cdn.pharmeasy.in/payments/wallet_icons/paytm.png" alt="logo"/>
+                        </Box>
+                        <Accordion w="100%" allowToggle >
+                            <AccordionItem border="1px solid white" borderBottom="1px solid #a7bdd3">
+                                <h2>
+                                <AccordionButton  _hover={{bg:"white"}} >
+                                    <Box flex='1' textAlign='left' color="#4f585e" fontSize="xl" fontWeight="bold">
+                                    Paytm Wallet <br/>
+                                    <Text fontSize="small" color="#8897a2" fontWeight="normal" mt="10px">Upto Rs.500 cashback on a minimum transaction of Rs.299. Valid once per user.</Text>
+                                    </Box>
+                                    <AccordionIcon />
+                                </AccordionButton>
+                                </h2>
+                                <AccordionPanel pb={4}>
+                                <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                                </AccordionPanel>
+                            </AccordionItem>
+                        </Accordion>
                     </Flex>
-               
+                    <Flex flexDirection="row" p={3}>
+                        <Box>
+                            <Image w="60px" mr="20px" p="5px" src="https://cdn.pharmeasy.in/payments/wallet_icons/mobikwik.png" alt="logo"/>
+                        </Box>
+                        <Accordion w="100%" allowToggle >
+                            <AccordionItem border="1px solid white" borderBottom="1px solid #a7bdd3">
+                                <h2>
+                                <AccordionButton  _hover={{bg:"white"}} >
+                                    <Box flex='1' textAlign='left' color="#4f585e" fontSize="xl" fontWeight="bold">
+                                    MobiKwik | ZIP (Pay Later) <br/>
+                                    <Text fontSize="small" color="#8897a2" fontWeight="normal" mt="10px">Upto Rs.500 cashback on a minimum transaction of Rs.299. Valid once per user.</Text>
+                                    </Box>
+                                    <AccordionIcon />
+                                </AccordionButton>
+                                </h2>
+                                <AccordionPanel pb={4}>
+                                <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                                </AccordionPanel>
+                            </AccordionItem>
+                        </Accordion>
+                    </Flex>
+                    <Flex flexDirection="row" p={3}>
+                        <Box>
+                            <Image w="60px" mr="20px" p="5px" src="https://cdn.pharmeasy.in/payments/amazonpay_new.png" alt="logo"/>
+                        </Box>
+                        <Accordion w="100%" allowToggle >
+                            <AccordionItem border="1px solid white" borderBottom="1px solid #a7bdd3">
+                                <h2>
+                                <AccordionButton  _hover={{bg:"white"}} >
+                                    <Box flex='1' textAlign='left' color="#4f585e" fontSize="xl" fontWeight="bold">
+                                    Amazon Pay <br/>
+                                    <Text fontSize="small" color="#8897a2" fontWeight="normal" mt="10px">Upto Rs.500 cashback on a minimum transaction of Rs.299. Valid once per user.</Text>
+                                    </Box>
+                                    <AccordionIcon />
+                                </AccordionButton>
+                                </h2>
+                                <AccordionPanel pb={4}>
+                                <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                                </AccordionPanel>
+                            </AccordionItem>
+                        </Accordion>
+                    </Flex>
             </Box>
+                    
+            {/* Other Options */}
             <Box>
-                <Heading w='100%'  p="10px" color="#8897a2">Other Options</Heading>
+                <Heading w='100%'  p="10px" color="#4f585e" fontSize="x-large" >Other Options</Heading>
+
+                <Flex flexDirection="row" p={3}>
+                    <Box>
+                        <Image w="60px" mr="20px" p="5px" src="https://cdn.pharmeasy.in/payments/upi.png" alt="logo"/>
+                    </Box>
+                    <Accordion w="100%" allowToggle >
+                        <AccordionItem border="1px solid white" borderBottom="1px solid #a7bdd3">
+                            <h2>
+                            <AccordionButton  _hover={{bg:"white"}} >
+                                <Box flex='1' textAlign='left' color="#4f585e" fontSize="large" fontWeight="bold">
+                                UPI <br/>
+                                <Flex>
+                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/phonepeWallet.png" alt="logo"/>
+                                    <Image w="50px" h="40px" mr="10px" mt="15px"src="https://consumer-app-images.pharmeasy.in/payment-icons/amazonpay.png" alt="logo"/>
+                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/gpay.png" alt="logo"/>
+                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/bhim.png" alt="logo"/>
+                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/paytmUpi.png" alt="logo"/>
+                                </Flex>
+                                </Box>
+                                <AccordionIcon />
+                            </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={4}>
+                            <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                            </AccordionPanel>
+                        </AccordionItem>
+                    </Accordion>
+                </Flex>
+                <Flex flexDirection="row" p={3}>
+                    <Box>
+                        <Image w="60px" mr="20px" p="5px" src="https://cdn.pharmeasy.in/payments/wallet.png" alt="logo"/>
+                    </Box>
+                    <Accordion w="100%" allowToggle >
+                        <AccordionItem border="1px solid white" borderBottom="1px solid #a7bdd3">
+                            <h2>
+                            <AccordionButton  _hover={{bg:"white"}} >
+                                <Box flex='1' textAlign='left' color="#4f585e" fontSize="large" fontWeight="bold">
+                                Wallets <br/>
+                                <Flex>
+                                    <Image w="40px" h="40px" mr="10px" mt="15px"src="https://consumer-app-images.pharmeasy.in/payment-icons/freecharge-wallet.png" alt="logo"/>
+                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/paytmUpi.png" alt="logo"/>
+                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/phonepeWallet.png" alt="logo"/>
+                                    <Image w="50px" h="40px" mr="10px" mt="15px"src="https://consumer-app-images.pharmeasy.in/payment-icons/amazonpay.png" alt="logo"/>
+                                </Flex>
+                                </Box>
+                                <AccordionIcon />
+                            </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={4}>
+                            <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                            </AccordionPanel>
+                        </AccordionItem>
+                    </Accordion>
+                </Flex>
+                <Flex flexDirection="row" p={3}>
+                    <Box>
+                        <Image w="60px" mr="20px" p="5px" src="https://cdn.pharmeasy.in/payments/card.png" alt="logo"/>
+                    </Box>
+                    <Accordion w="100%" allowToggle >
+                        <AccordionItem border="1px solid white" borderBottom="1px solid #a7bdd3">
+                            <h2>
+                            <AccordionButton  _hover={{bg:"white"}} >
+                                <Box flex='1' textAlign='left' color="#4f585e" fontSize="large" fontWeight="bold">
+                                Credit/Debit Card <br/>
+                                <Text fontSize="small" color="#8897a2" fontWeight="normal" mt="10px">Flat Rs.200 off on HSBC Credit Cards. Valid once per user & on orders above Rs. 1500</Text>
+                                <Flex>
+                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/mastercard-logo.png" alt="logo"/>
+                                    <Image w="50px" h="40px" mr="10px" mt="15px"src="https://consumer-app-images.pharmeasy.in/payment-icons/rupay.png" alt="logo"/>
+                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/maestro-logo.png" alt="logo"/>
+                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/dinerCard.png" alt="logo"/>
+                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/visa.png" alt="logo"/>
+                                </Flex>
+                                </Box>
+                                <AccordionIcon />
+                            </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={4}>
+                            <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                            </AccordionPanel>
+                        </AccordionItem>
+                    </Accordion>
+                </Flex>
+                <Flex flexDirection="row" p={3}>
+                    <Box>
+                        <Image mr="20px" w="60px" p="5px" src="https://cdn.pharmeasy.in/payments/netbanking.png" alt="logo"/>
+                    </Box>
+                    <Accordion w="100%" allowToggle >
+                        <AccordionItem border="1px solid white" borderBottom="1px solid #a7bdd3">
+                            <h2>
+                            <AccordionButton  _hover={{bg:"white"}} >
+                                <Box flex='1' textAlign='left' color="#4f585e" fontSize="xl" fontWeight="bold">
+                                Net Banking <br/>
+                                <Text fontSize="small" color="#8897a2" fontWeight="normal" mt="10px">We support over 100 banks</Text>
+                                </Box>
+                                <AccordionIcon />
+                            </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={4}>
+                            <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                            </AccordionPanel>
+                        </AccordionItem>
+                    </Accordion>
+                </Flex>
+                <Flex flexDirection="row" p={3}>
+                    <Box>
+                        <Image mr="20px" w="60px" p="5px" src="https://consumer-app-images.pharmeasy.in/payment-icons/cod.png" alt="logo"/>
+                    </Box>
+                    <Accordion w="100%" allowToggle >
+                        <AccordionItem border="1px solid white" borderBottom="1px solid #a7bdd3">
+                            <h2>
+                            <AccordionButton  _hover={{bg:"white"}} >
+                                <Box flex='1' textAlign='left' color="#4f585e" fontSize="xl" fontWeight="bold">
+                                Cash on Delivery <br/>
+                                <Text fontSize="small" color="#8897a2" fontWeight="normal" mt="10px">Pay via Cash/UPI at the time of delivery</Text>
+                                </Box>
+                                <AccordionIcon />
+                            </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={4}>
+                            <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                            </AccordionPanel>
+                        </AccordionItem>
+                    </Accordion>
+                </Flex>
             </Box>
         </Box>
-        <Box display={{xl:"block",xs:"none", sm:"none", md:"none", lg:"none"}} border="1px solid black">
+    {/* Right */}
+        {/* <Box w="400px" display={{xl:"block",xs:"none", sm:"none", md:"none", lg:"none"}} border="1px solid black">
            <Heading w='100%' fontSize='xl' p="10px" color="#8897a2" > Price Breakdown </Heading>
             <Box >
                 <Flex justifyContent="space-between" p="10px">
@@ -71,7 +253,7 @@ export const Payment = () => {
                 </Accordion>
             </Box>
             
-        </Box>
+        </Box> */}
     </Flex>
   )
 }
