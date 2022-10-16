@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 export const Delivery = () => {
   return (
     <Flex w="70%" m="auto" justifyContent="space-between"  mt="30px" mb="30px" flexDirection={{xl: "row", xs:"column", sm:"column", md:"column", lg:"row"}}>
+        {/* Left */}
         <Box  w={{xl: "60%", xs:"100%", sm:"100%", md:"100%", lg:"60%"}}>
             <Stack spacing={8} direction='column'>
                 <Flex alignItems="end" p={5} shadow='md' bg="#ecf2ff"  borderRadius="7px">
@@ -14,7 +15,7 @@ export const Delivery = () => {
                     </Box>
                 </Flex>
                 <RadioGroup defaultValue='1'>
-                    <Box p={5} borderRadius="7px" mt={4} _hover={{ border: "1px solid #159a94" }} >
+                    <Box p={5} borderRadius="7px" mt={4} _hover={{ border: "1px solid #159a94" }} border="1px solid #e4e7ea">
                         <Flex>
                             <Radio colorScheme='green' value='1'></Radio>
                             <Box ml='20px'>
@@ -27,9 +28,19 @@ export const Delivery = () => {
                            </Box>
                         </Flex>         
                     </Box>
+                    <Box p={5} borderRadius="7px" mt={4} _hover={{ border: "1px solid #159a94" }} border="1px solid #e4e7ea" >
+                        <Flex>
+                            <Radio colorScheme='green' value='2'></Radio>
+                            <Box ml='20px'>
+                                <Heading fontSize='xl' color="#4f585e">20 Oct - 22 Oct</Heading>
+                           </Box>
+                        </Flex>         
+                    </Box>
                 </RadioGroup>
+                
             </Stack>
         </Box>
+        {/* Right */}
         <Box w={{xl: "30%", xs:"100%", sm:"100%", md:"100%", lg:"30%"}}>
            <NavLink to="/payment"> <Button w='100%' display="flex"  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} ><Text mr="10px"> Proceed to Pay </Text> <AiFillRightCircle w="50px"/></Button></NavLink>
             <Box display={{xl:"block",xs:"none", sm:"none", md:"none", lg:"none"}}>
@@ -48,12 +59,12 @@ export const Delivery = () => {
                         <Heading fontSize='l' color="#4f585e">₹75.00 </Heading> 
                     </Flex>
                 </Flex>
-                <Flex justifyContent="space-between" p="10px">
+                <Flex justifyContent="space-between" p="10px" borderTop="2px dotted #e4e7ea" borderBottom="2px dotted #e4e7ea">
                     <Text fontSize='l' color="#4f585e">Cart Value</Text>
                     <Heading fontSize='l' color="#4f585e">₹460.95 </Heading> 
                     
                 </Flex>   
-                <Accordion defaultIndex={[0]} allowMultiple border="2px dotted #3bb896" borderRadius="7px" bg="#f2fff8" p={3} mt="20px">
+                <Accordion defaultIndex={[0]} allowMultiple border="2px dotted #3bb896" borderRadius="7px" bg="#f2fff8" p={2} mt="20px">
                     <AccordionItem border="1px solid #f2fff8">
                         <h2>
                         <AccordionButton _hover={{ bg:"#f2fff8" }}>

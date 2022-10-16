@@ -7,6 +7,7 @@ export const Payment = () => {
     
   return (
     <Flex w="70%" m="auto" justifyContent="space-between"  mt="30px" mb="30px" flexDirection={{xl: "row", xs:"column", sm:"column", md:"column", lg:"row"}}>
+    {/* Left */}
         <Box  w="700px">
             {/* Offers */}
             <Box>
