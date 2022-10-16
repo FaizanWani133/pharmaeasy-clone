@@ -170,8 +170,9 @@ function Products() {
                   <Radio isChecked={true} colorScheme="teal"></Radio>
                 </HStack>
               </Box>
+              <hr></hr>
 
-              <Divider />
+              
               {loading && (
                 <Stack>
                   <Skeleton mt={"20px"} mb={"20px"} height={"20px"} />
@@ -289,6 +290,7 @@ function Products() {
                 <Text noOfLines={1}>Sort By:</Text>
                 <Box>
                   <Select
+                  colorScheme={"teal"}
                     value={orderBy}
                     onChange={(e) => {
                       setOrderBy(e.target.value);
