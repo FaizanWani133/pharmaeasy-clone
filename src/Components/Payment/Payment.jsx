@@ -159,7 +159,7 @@ export const Payment = () => {
                             </AccordionButton>
                             </h2>
                             <AccordionPanel pb={4}>
-                            <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button>
+                                <Order />
                             </AccordionPanel>
                         </AccordionItem>
                     </Accordion>
