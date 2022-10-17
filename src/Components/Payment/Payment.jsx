@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Image, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, Image, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Hide } from '@chakra-ui/react'
 import React from 'react';
 import { Order } from './Order';
 import { UpiPayment } from './UpiPayment';
@@ -6,9 +6,9 @@ import { UpiPayment } from './UpiPayment';
 export const Payment = () => {
     
   return (
-    <Flex w="70%" m="auto" justifyContent="space-between"  mt="30px" mb="30px" flexDirection={{xl: "row", xs:"column", sm:"column", md:"column", lg:"row"}}>
+    <Box display="flex" w={{base: "90%", sm:"90%", md:"90%", lg:"90%", xl:"70%"}} m="auto" justifyContent="space-between"  mt="30px" mb="30px" flexDirection={{xl: "row", xs:"column", sm:"column", md:"column", lg:"row"}}>
     {/* Left */}
-        <Box  w="700px">
+        <Box  w={{base: "90%", sm:"90%", md:"90%", lg:"90%", xl:"60%"}}>
             {/* Offers */}
             <Box>
                 <Heading w='100%'  p="10px" color="#4f585e" fontSize="x-large">Offers</Heading>
@@ -29,8 +29,7 @@ export const Payment = () => {
                                 </AccordionButton>
                                 </h2>
                                 <AccordionPanel pb={4}>
-                                {/* <Button  bg="#10847e" color="white" fontSize='xl' p="25px" _hover={{ border: "1px solid #159a94" }} > Place Order</Button> */}
-                                <Order />
+                                    <Order />
                                 </AccordionPanel>
                             </AccordionItem>
                         </Accordion>
@@ -93,13 +92,15 @@ export const Payment = () => {
                             <AccordionButton  _hover={{bg:"white"}} >
                                 <Box flex='1' textAlign='left' color="#4f585e" fontSize="large" fontWeight="bold">
                                 UPI <br/>
-                                <Flex>
-                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/phonepeWallet.png" alt="logo"/>
-                                    <Image w="50px" h="40px" mr="10px" mt="15px"src="https://consumer-app-images.pharmeasy.in/payment-icons/amazonpay.png" alt="logo"/>
-                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/gpay.png" alt="logo"/>
-                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/bhim.png" alt="logo"/>
-                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/paytmUpi.png" alt="logo"/>
-                                </Flex>
+                                <Hide below="sm">
+                                    <Flex>
+                                        <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/phonepeWallet.png" alt="logo"/>
+                                        <Image w="50px" h="40px" mr="10px" mt="15px"src="https://consumer-app-images.pharmeasy.in/payment-icons/amazonpay.png" alt="logo"/>
+                                        <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/gpay.png" alt="logo"/>
+                                        <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/bhim.png" alt="logo"/>
+                                        <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/paytmUpi.png" alt="logo"/>
+                                    </Flex>
+                                </Hide>
                                 </Box>
                                 <AccordionIcon />
                             </AccordionButton>
@@ -121,12 +122,14 @@ export const Payment = () => {
                             <AccordionButton  _hover={{bg:"white"}} >
                                 <Box flex='1' textAlign='left' color="#4f585e" fontSize="large" fontWeight="bold">
                                 Wallets <br/>
+                                <Hide below="sm">
                                 <Flex>
                                     <Image w="40px" h="40px" mr="10px" mt="15px"src="https://consumer-app-images.pharmeasy.in/payment-icons/freecharge-wallet.png" alt="logo"/>
                                     <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/paytmUpi.png" alt="logo"/>
                                     <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/phonepeWallet.png" alt="logo"/>
                                     <Image w="50px" h="40px" mr="10px" mt="15px"src="https://consumer-app-images.pharmeasy.in/payment-icons/amazonpay.png" alt="logo"/>
                                 </Flex>
+                                </Hide>
                                 </Box>
                                 <AccordionIcon />
                             </AccordionButton>
@@ -148,13 +151,15 @@ export const Payment = () => {
                                 <Box flex='1' textAlign='left' color="#4f585e" fontSize="large" fontWeight="bold">
                                 Credit/Debit Card <br/>
                                 <Text fontSize="small" color="#8897a2" fontWeight="normal" mt="10px">Flat Rs.200 off on HSBC Credit Cards. Valid once per user & on orders above Rs. 1500</Text>
-                                <Flex>
-                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/mastercard-logo.png" alt="logo"/>
-                                    <Image w="50px" h="40px" mr="10px" mt="15px"src="https://consumer-app-images.pharmeasy.in/payment-icons/rupay.png" alt="logo"/>
-                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/maestro-logo.png" alt="logo"/>
-                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/dinerCard.png" alt="logo"/>
-                                    <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/visa.png" alt="logo"/>
-                                </Flex>
+                                <Hide below="sm">
+                                    <Flex>
+                                        <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/mastercard-logo.png" alt="logo"/>
+                                        <Image w="50px" h="40px" mr="10px" mt="15px"src="https://consumer-app-images.pharmeasy.in/payment-icons/rupay.png" alt="logo"/>
+                                        <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/maestro-logo.png" alt="logo"/>
+                                        <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/dinerCard.png" alt="logo"/>
+                                        <Image w="50px" mr="10px" mt="10px"src="https://consumer-app-images.pharmeasy.in/payment-icons/visa.png" alt="logo"/>
+                                    </Flex>
+                                </Hide>
                                 </Box>
                                 <AccordionIcon />
                             </AccordionButton>
@@ -210,6 +215,7 @@ export const Payment = () => {
             </Box>
         </Box>
     {/* Right */}
+    <Hide below="lg">
         <Box w="400px" display={{xl:"block",xs:"none", sm:"none", md:"none", lg:"none"}} >
            <Heading w='100%' fontSize='xl' p="10px" color="#8897a2" > Price Breakdown </Heading>
             <Box >
@@ -260,6 +266,8 @@ export const Payment = () => {
             </Box>
             
         </Box>
-    </Flex>
+    </Hide>
+        
+    </Box>
   )
 }
