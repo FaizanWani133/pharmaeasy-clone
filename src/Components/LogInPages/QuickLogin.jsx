@@ -31,7 +31,7 @@ export function LoginIndividualSlider() {
         setUser({...user, [name]: value})
 
     }
-    // console.log(user);
+    console.log(user);
   
     const handleLogin = async(e) =>{
       e.preventDefault();
@@ -77,7 +77,7 @@ export function LoginIndividualSlider() {
         onClose();
     }
 
-    // console.log(auth);
+    console.log(auth);
     return (
       <>
        {auth ? <Text > <LogOut /> </Text> : <Text onClick={onOpen} color="black" cursor="pointer"  >Hello, Log in </Text>}
@@ -93,7 +93,7 @@ export function LoginIndividualSlider() {
           <DrawerContent>
             <DrawerCloseButton 
             position="absolute"
-            left="-50px"
+            left={{lg:"-50px", xl:"-50px"}}
             top="25px"
             bg="#0f847e"
             p="28px"

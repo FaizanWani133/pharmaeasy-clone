@@ -96,7 +96,7 @@ export const QuickRegister = () => {
             <DrawerContent>
             <DrawerCloseButton
                 position="absolute"
-                left="-50px"
+                left={{lg:"-50px", xl:"-50px"}}
                 top="25px"
                 bg="#0f847e"
                 p="28px"
