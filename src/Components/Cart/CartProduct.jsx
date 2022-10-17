@@ -8,51 +8,68 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
+import { Container, Stack } from "react-bootstrap";
 import { FiTrash2 } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { remove } from "../../Redux/Cart/action";
 import QuantitySelecter from "./QuantitySelecter";
 
-function CartProduct({ data }) {
+function CartProduct(props) {
+    const {data} = props;
+    const {id,amount,originalPrice,newPrice,offer,img1,company,desc} = data;
+    const dispatch = useDispatch();
+    const {func} = props
+
+    
+    
+   
+    
   return (
-    <Flex
+    <HStack
       p={4}
       gap="20px"
       border={"1px solid grey"}
       borderRadius="10px"
       minW={{ lg: "500px" }}
+      width="100%"
+      justifyContent={"space-between"}
+      
       
     >
-      <Box width="60px" height="60px">
-        <Image bg="blue" width="60px" height="60px" ></Image>
+      <Box   width={"100px"} height="60px"  >
+        <Image  width="100%" height="100%" src={img1}  objectFit="fill" ></Image>
       </Box>
-      <Box flexGrow={"1"}>
+      <Box  width={"100%"}>
         <HStack alignItems={"flex-start"} justify={"space-between"}>
-          <Text fontWeight={"500"} noOfLines="2">asd asdadaddadadad asdadaddadadad</Text>
-          <IconButton icon={<FiTrash2 fontSize={"20px"} />}></IconButton>
+          <Text fontWeight={"500"} noOfLines="2">{desc}</Text>
+          <IconButton onClick={()=>func(id)}
+         icon={<FiTrash2 fontSize={"20px"} />}></IconButton>
         </HStack>
         <Text fontSize={"14px"} color="rgba(0,0,0,0.6)" mb={"6px"}>
-          By Dettol
+          By {company}
         </Text>
-        <Text fontWeight={"500"}>50g lotion tube</Text>
+        
         <HStack justify={"space-between"}>
-          <QuantitySelecter />
+          <QuantitySelecter id={id} amount={amount} />
           <VStack>
             <HStack>
               <Text fontSize={"12px"} textDecor={"line-through"}>
-              ₹ 540
+              ₹ {originalPrice}
               </Text>
               <Text fontSize={"12px"} color="red">
-                30% OFF
+                {offer}% OFF
               </Text>
             </HStack>
-            <Text textAlign={"right"} fontSize={"14px"} fontWeight="600">₹ 542</Text>
+            <Text textAlign={"right"} fontSize={"14px"} fontWeight="600">₹ {parseFloat((newPrice * amount).toFixed(2))}</Text>
           </VStack>
         </HStack>
         <Text  fontSize={"14px"} color="rgba(0,0,0,0.6)">
           Delivery by 15 Oct
         </Text>
       </Box>
-    </Flex>
+    </HStack>
   );
 }
 

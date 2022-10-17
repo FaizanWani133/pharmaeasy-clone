@@ -49,7 +49,7 @@ function Products() {
   const arr = [];
   const [page, setPage] = useState(getCurrPage(search.get("page")) || 1);
   
-  const [filterArr, setFilterArr] = useState([]);
+  const [filterArr, setFilterArr] = useState(JSON.parse(localStorage.getItem("arr"))|| []);
 
   const [filters, setFilters] = useState([
     {
@@ -78,7 +78,7 @@ function Products() {
       label: "EverHerb",
     },
   ]);
-
+console.log(filters);
   // console.log(filterArr);
   // console.log(search);
   let p1 = `&_sort=newPrice&_order=${orderBy}`;
@@ -132,8 +132,10 @@ function Products() {
       }
       
     } )
+    localStorage.setItem('arr', JSON.stringify(arr))
     setFilterArr(arr);
-    // console.log(arr);
+    
+    console.log(filterArr);
       if(filters.find(el=>el.checked===true)){
         paramObj.brand = arr
 
@@ -170,7 +172,7 @@ function Products() {
                   <Radio isChecked={true} colorScheme="teal"></Radio>
                 </HStack>
               </Box>
-              <hr></hr>
+              
 
               
               {loading && (
@@ -247,7 +249,7 @@ function Products() {
                   >
                     Brand
                   </Text>
-                  
+                  <CheckboxGroup >
                     <VStack spacing={"20px"} width={"100%"}>
                       {filters.map((el) => (
                         <HStack  key={el.id} width={"100%"} justify="space-between">
@@ -264,6 +266,7 @@ function Products() {
                         </HStack>
                       ))}
                     </VStack>
+                    </CheckboxGroup>
                   
                 </Box>
               )}

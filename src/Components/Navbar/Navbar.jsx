@@ -16,6 +16,8 @@ import {
   Avatar,
   VStack,
   HStack,
+  IconButton,
+  Badge,
 } from "@chakra-ui/react";
 
 import React, { useEffect, useState } from "react";
@@ -31,9 +33,17 @@ import { Link, useNavigate } from "react-router-dom";
 import NavSearch from "./NavSearch";
 import Tabs from "./Tabs";
 import { LoginIndividualSlider } from "../LogInPages/QuickLogin";
+import { useDispatch, useSelector } from "react-redux";
+import { getCartTotal } from "../../Redux/Cart/action";
 
 
 function Navbar() {
+  const dispatch = useDispatch();
+    const {cartItems,totalCount} = useSelector(state => state.cart)
+    
+    useEffect(()=>{
+        dispatch(getCartTotal())
+    },[cartItems])
   const tabs = [
     {
       title:"Home",
@@ -215,9 +225,12 @@ function Navbar() {
           </Box>
         </Link>
         <Link className="hover_green" to={"/cart"}>
-          <Box display="flex" fontSize="14px">
-            <Box display="flex" alignItems="center" mr="8px">
-              <FiShoppingCart fontSize="20px" />
+          <Box display="flex" fontSize="14px" pos={"relative"}>
+            <Box  display="flex" alignItems="center" mr="8px">
+              <FiShoppingCart fontSize="20px"/>
+             <Badge colorScheme={"teal"} top={"-10px"} left="10px" borderRadius={"50%"}  pos={"absolute"}>{totalCount}</Badge>
+              
+              
             </Box>
             {windowWidth > 1104 && <Box mt="2px" fontWeight="600">Cart</Box>}
             {windowWidth < 1024 && windowWidth > 650 && <Box fontWeight="600" mt="2px">Cart</Box>}

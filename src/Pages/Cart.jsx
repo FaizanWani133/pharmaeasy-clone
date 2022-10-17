@@ -1,19 +1,20 @@
-import { Box, Flex, HStack, Text, Wrap } from '@chakra-ui/react'
+import { Box, Center, Flex, HStack, Text, Wrap } from '@chakra-ui/react'
 import React from 'react'
 import CartProduct from '../Components/Cart/CartProduct'
+import CartStack from '../Components/Cart/CartStack'
 import OrderSummary from '../Components/Cart/OrderSummary'
 
 function Cart() {
   return (
-    <Wrap  width="80%" margin="30px auto"  justify={"space-between"} >
-        <Box flexGrow={".7"}  >
-           <HStack justify={"space-between"}><Text fontSize={"26px"} fontWeight="600" mb={"15px"}>Items in Cart</Text><Text fontSize={"12px"}>Prices are indicative</Text></HStack>
-            <CartProduct/>
+    <Flex  width="80%" margin="30px auto"  justify={{base:"center",sm:"center",lg:"space-between",xl:"space-between"}} flexDir={{base:"column",sm:"column",lg:"row",xl:"row"}} >
+        <Box flexGrow={"1"} maxW={"700px"}>
+           <HStack width={"100%"} justify={"space-between"}><Text fontSize={"26px"} fontWeight="600" mb={"15px"}>Items in Cart</Text><Text fontSize={"12px"}>Prices are indicative</Text></HStack>
+            <CartStack/>
         </Box>
-        <Box width={"352px"} p={4}>
+        <Box minW={"300px"} p={4}>
             <OrderSummary/>
         </Box>
-    </Wrap>
+    </Flex>
   )
 }
 
