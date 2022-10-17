@@ -1,4 +1,5 @@
 import { Button, Center, Flex,Text, Image, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react'
+import axios from 'axios';
 import React from 'react'
 import { GiHeartPlus } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
@@ -8,8 +9,18 @@ export function Order() {
     let navigate = useNavigate(); 
 
     const handleClick = () => {
+
         let path = `/`; 
         navigate(path);
+
+
+        fetch("http://localhost:3001/Cart",{
+          method:"PATCH",
+          body:[],
+          headers:{"content-type": "application/json"}
+
+        })
+
     }
     return (
       <>
