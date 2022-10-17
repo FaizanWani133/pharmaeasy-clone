@@ -2,11 +2,13 @@ import { Accordion,AccordionButton, AccordionIcon, AccordionItem, AccordionPanel
 import React, { useEffect } from 'react'
 import { TbDiscount2 } from 'react-icons/tb'
 import { useSelector,useDispatch } from 'react-redux'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { getCartTotal } from '../../Redux/Cart/action'
 
 
 function OrderSummary() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const {cartItems,totalAmount} = useSelector(state => state.cart)
     
     useEffect(()=>{
@@ -33,7 +35,7 @@ function OrderSummary() {
 
   
 </Accordion>
-            <Button disabled={cartItems.length < 1 } width={"100%"} colorScheme={"teal"}>Proceed To Buy</Button>
+            <Button disabled={cartItems.length < 1 } width={"100%"} onClick={()=>navigate("/payment")} colorScheme={"teal"}>Proceed To Buy</Button>
             <Divider/>
             <VStack width={"100%"} >
             <Text width={"100%"} textAlign={"left"} fontWeight="500"> Order Summary</Text>

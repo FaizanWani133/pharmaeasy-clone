@@ -28,3 +28,6 @@ export const addToCart = (data) =>({
     type:types.ADD_ITEM,
     payload:data
 })
+export const clearCart = () =>({
+    type:types.CLEAR_CART,
+})

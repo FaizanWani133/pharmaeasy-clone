@@ -32,6 +32,7 @@ import axios from "axios";
 import { addToCart, getCartTotal, remove, updateCart } from "../../Redux/Cart/action";
 
 const Product = (props) => {
+    const isAuth = localStorage.getItem('isAuth') || false;
     const navigate = useNavigate();
     const dispatch = useDispatch();
   const { data } = props;
@@ -286,6 +287,10 @@ useEffect(()=>{
                     onClick={() => {
                     //   onOpen();
                     //   setmodalpos(true);
+                    if(!isAuth){
+                        navigate("/")
+                        return;
+                    }
                       
                       updateCart(amt,data.id);
                     
@@ -303,7 +308,9 @@ useEffect(()=>{
                     ) : (
                       "Add To Cart"
                     )}
-                  </Button></VStack> : <Button>View Cart</Button> }
+                  </Button></VStack> : <Button colorScheme={"teal"} variant="outline" onClick={()=>{
+                    navigate("/cart")
+                  }}>View Cart</Button> }
                 </Box>
                 <Modal
                   onClose={onClose}
@@ -551,7 +558,7 @@ useEffect(()=>{
                       <ChevronDownIcon ml={2} />
                     </Text>
                   ) : (
-                    "Add"
+                    "Add To Cart"
                   )}
                 </Button> : <Button onClick={()=>removeItem(data.id)}>Remove</Button>}
                 

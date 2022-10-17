@@ -1,3 +1,4 @@
+import { DeleteIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -44,8 +45,8 @@ function CartProduct(props) {
       <Box  width={"100%"}>
         <HStack alignItems={"flex-start"} justify={"space-between"}>
           <Text fontWeight={"500"} noOfLines="2">{desc}</Text>
-          <IconButton onClick={()=>func(id)}
-         icon={<FiTrash2 fontSize={"20px"} />}></IconButton>
+          
+         <DeleteIcon _hover={{color:"red"}} cursor="pointer" onClick={()=>func(id)}  fontSize={"16px"} />
         </HStack>
         <Text fontSize={"14px"} color="rgba(0,0,0,0.6)" mb={"6px"}>
           By {company}

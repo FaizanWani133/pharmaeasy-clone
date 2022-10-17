@@ -1,5 +1,4 @@
 import * as types from "./actionTypes";
-import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 
@@ -61,8 +60,13 @@ const cartReducer = (state = cartInitialState, action) => {
         case types.SET_CART:
             return{
                 ...state,
-                cartItems:action.payload
+                cartItems:[...action.payload]
             }
+            case types.CLEAR_CART:
+                return{
+                    ...state,
+                    cartItems:[]
+                }
     
   }
 };

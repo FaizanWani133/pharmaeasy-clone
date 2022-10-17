@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
+import { LoginIndividualSlider } from '../Components/LogInPages/QuickLogin'
 
 import { Delivery } from '../Components/Payment/ExpressDelivery'
 import { Payment } from '../Components/Payment/Payment'
@@ -24,7 +25,6 @@ function AllRoutes() {
       dispatch(setCart(res.data));
     
     })
-    
   }
   useEffect(()=>{
     getCart();
@@ -43,6 +43,8 @@ function AllRoutes() {
         <Route path='/delivery' element={<Delivery />}></Route>
         <Route path='/payment' element={<Payment />}></Route>
         <Route path='/cart' element={<Cart />}></Route>
+        <Route path="/payment" element={<Payment />}></Route>
+        
     </Routes>
 
   )

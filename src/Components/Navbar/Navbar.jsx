@@ -38,6 +38,7 @@ import { getCartTotal } from "../../Redux/Cart/action";
 
 
 function Navbar() {
+  const isAuth = localStorage.getItem("isAuth") || false;
   const dispatch = useDispatch();
     const {cartItems,totalCount} = useSelector(state => state.cart)
     
@@ -228,7 +229,7 @@ function Navbar() {
           <Box display="flex" fontSize="14px" pos={"relative"}>
             <Box  display="flex" alignItems="center" mr="8px">
               <FiShoppingCart fontSize="20px"/>
-             <Badge colorScheme={"teal"} top={"-10px"} left="10px" borderRadius={"50%"}  pos={"absolute"}>{totalCount}</Badge>
+             <Center border={"1px solid black"} color="white" fontSize={"10px"} borderRadius="50%" borderColor={"teal"} bg="teal" height={"16px"} top={"-10px"} left="10px"  pos={"absolute"} paddingX="5px">{isAuth ? totalCount : 0}</Center>
               
               
             </Box>
