@@ -249,7 +249,7 @@ console.log(filters);
                   >
                     Brand
                   </Text>
-                  <CheckboxGroup >
+                  
                     <VStack spacing={"20px"} width={"100%"}>
                       {filters.map((el) => (
                         <HStack  key={el.id} width={"100%"} justify="space-between">
@@ -266,7 +266,7 @@ console.log(filters);
                         </HStack>
                       ))}
                     </VStack>
-                    </CheckboxGroup>
+                    
                   
                 </Box>
               )}

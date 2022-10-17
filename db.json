@@ -651,23 +651,5 @@
       "id": 4
     }
   ],
-  "Cart": [
-    {
-      "_id": "62aee9fb026df04f68c9d12f",
-      "id": 6,
-      "desc": "Savlon Surface Disinfectant Spray 170g",
-      "company": "SAVLON",
-      "img1": "https://cdn01.pharmeasy.in/dam/products_otc/O26428/savlon-surface-disinfectant-spray-170g-2-1654234199.jpg?dim=320x320&dpr=1&q=100",
-      "img2": "https://cdn01.pharmeasy.in/dam/products_otc/O26428/savlon-surface-disinfectant-spray-170g-6.1-1641788812.jpg?dim=100x0&dpr=1&q=100",
-      "img3": "https://cdn01.pharmeasy.in/dam/products_otc/O26428/savlon-surface-disinfectant-spray-170g-6.2-1641788809.jpg?dim=100x0&dpr=1&q=100",
-      "img4": "https://cdn01.pharmeasy.in/dam/products_otc/O26428/savlon-surface-disinfectant-spray-170g-6.3-1641788811.jpg?dim=100x0&dpr=1&q=100",
-      "img5": "https://cdn01.pharmeasy.in/dam/products_otc/O26428/savlon-surface-disinfectant-spray-170g-6.5-1641788808.jpg?dim=100x0&dpr=1&q=100",
-      "ratings": 657,
-      "newPrice": 140.25,
-      "originalPrice": 165,
-      "offer": 15,
-      "about": "The dirt and germs on surfaces can easily be cleaned to give access to a hygienic environment with Savlon Surface Disinfectant Spray. Savlon disinfectant can be used on various surfaces including tabletops, chairs, doorknobs, flooring and even curtains. All you need to do is to spray the liquid on the surface that requires cleaning and let it air dry. The use of this Savlon spray is particularly essential for surfaces that are touched frequently. One must also use Savlon hand sanitiser for added protection.",
-      "amount": 1
-    }
-  ]
+  "Cart": []
 }
