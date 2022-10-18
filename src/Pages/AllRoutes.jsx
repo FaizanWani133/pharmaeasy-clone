@@ -43,7 +43,6 @@ function AllRoutes() {
         <Route path='/delivery' element={<Delivery />}></Route>
         <Route path='/payment' element={<Payment />}></Route>
         <Route path='/cart' element={<Cart />}></Route>
-        <Route path="/payment" element={<Payment />}></Route>
         
     </Routes>
 

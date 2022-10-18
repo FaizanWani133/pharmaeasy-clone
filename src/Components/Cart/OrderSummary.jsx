@@ -35,7 +35,7 @@ function OrderSummary() {
 
   
 </Accordion>
-            <Button disabled={cartItems.length < 1 } width={"100%"} onClick={()=>navigate("/payment")} colorScheme={"teal"}>Proceed To Buy</Button>
+            <Button disabled={cartItems.length < 1 } width={"100%"} onClick={()=>navigate("/delivery")} colorScheme={"teal"}>Proceed To Buy</Button>
             <Divider/>
             <VStack width={"100%"} >
             <Text width={"100%"} textAlign={"left"} fontWeight="500"> Order Summary</Text>
