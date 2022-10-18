@@ -16,7 +16,7 @@ function Search() {
 console.log(name);
 const [data,setData] = useState([]);
 function updateCart(amt,id,el){
-  axios.post("http://localhost:3001/Cart",{
+  axios.post("https://pharmeasy-server1234.herokuapp.com/Cart",{
       ...el,
       amount:amt,
   }).then(res=>{
@@ -25,7 +25,7 @@ function updateCart(amt,id,el){
 }
 function removeItem(id){
         
-  fetch(`http://localhost:3001/Cart/${id}`,{
+  fetch(`https://pharmeasy-server1234.herokuapp.com/Cart/${id}`,{
   method:"DELETE",
  
   headers:{"content-type": "application/json"}
@@ -35,7 +35,7 @@ function removeItem(id){
 }
 
  useEffect(()=>{
-  axios.get(`http://localhost:3001/Products?q=${name}`).then(res=>setData(res.data))
+  axios.get(`https://pharmeasy-server1234.herokuapp.com/Products?q=${name}`).then(res=>setData(res.data))
  },[name])
  useEffect(()=>{
   dispatch(getCartTotal());

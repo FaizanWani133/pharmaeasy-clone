@@ -13,7 +13,7 @@ function CartStack() {
 
   function removeItem(id){
         
-    fetch(`http://localhost:3001/Cart/${id}`,{
+    fetch(`https://pharmeasy-server1234.herokuapp.com/Cart/${id}`,{
     method:"DELETE",
    
     headers:{"content-type": "application/json"}

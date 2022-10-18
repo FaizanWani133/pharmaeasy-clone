@@ -50,7 +50,7 @@ const Product = (props) => {
   const { totalAmount,cartItems } = useSelector((state) => state.cart);
  
 function updateCart(amt,id){
-    axios.post("http://localhost:3001/Cart",{
+    axios.post("https://pharmeasy-server1234.herokuapp.com/Cart",{
         ...data,
         amount:amt,
     }).then(res=>{
@@ -61,7 +61,7 @@ function update(id,amount){
     const body = {
         amount
     }
-    fetch(`http://localhost:3001/Cart/${id}`,{
+    fetch(`https://pharmeasy-server1234.herokuapp.com/Cart/${id}`,{
         method:"PATCH",
         body:JSON.stringify(body),
         headers:{"content-type": "application/json"}
@@ -72,7 +72,7 @@ function update(id,amount){
 }
 function removeItem(id){
         
-    fetch(`http://localhost:3001/Cart/${id}`,{
+    fetch(`https://pharmeasy-server1234.herokuapp.com/Cart/${id}`,{
     method:"DELETE",
    
     headers:{"content-type": "application/json"}

@@ -111,7 +111,7 @@ function handleCheckedState(id){
     setLoading(true);
     axios
       .get(
-        `http://localhost:3001/Products?_page=${page}&_limit=9${orderBy && p1}${p3 ? p3.join("") : ""}`
+        `https://pharmeasy-server1234.herokuapp.com/Products?_page=${page}&_limit=9${orderBy && p1}${p3 ? p3.join("") : ""}`
       )
       .then((res) => {
         // console.log(res);

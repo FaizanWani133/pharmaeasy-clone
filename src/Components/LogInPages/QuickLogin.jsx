@@ -35,7 +35,7 @@ export function LoginIndividualSlider() {
   
     const handleLogin = async(e) =>{
       e.preventDefault();
-        let res = await fetch(`http://localhost:3001/Users`);
+        let res = await fetch(`https://pharmeasy-server1234.herokuapp.com/Users`);
         let res2 = await res.json();
         // console.log(res2);
 
