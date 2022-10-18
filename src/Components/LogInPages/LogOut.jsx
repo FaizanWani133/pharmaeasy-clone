@@ -15,7 +15,7 @@ export function LogOut() {
 
   return (
     <>
-        <Button color="black" onClick={onOpen}>User</Button>
+        <Button color="black" bg={"transparent"} _hover={{backgroundColor:"transparent"}} onClick={onOpen}>User</Button>
       <AlertDialog
         motionPreset='slideInBottom'
         leastDestructiveRef={cancelRef}
