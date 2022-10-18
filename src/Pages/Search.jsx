@@ -1,46 +1,91 @@
 import { Box, Button, Flex, Center, Heading, Hide, Image, Text } from '@chakra-ui/react';
 import axios from 'axios';
-import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom'
+import { addToCart, getCartTotal, remove } from '../Redux/Cart/action';
 
 function Search() {
+  const isAuth = localStorage.getItem('isAuth');
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const { cartItems } = useSelector((state) => state.cart);
+  
+
  const {name} = useParams();
 console.log(name);
+const [data,setData] = useState([]);
+function updateCart(amt,id,el){
+  axios.post("http://localhost:3001/Cart",{
+      ...el,
+      amount:amt,
+  }).then(res=>{
+      dispatch(addToCart({...el,amount:amt}))
+  })  
+}
+function removeItem(id){
+        
+  fetch(`http://localhost:3001/Cart/${id}`,{
+  method:"DELETE",
+ 
+  headers:{"content-type": "application/json"}
+}).then((res)=>res.json()).then(dispatch(remove(id))).catch((err)=>console.log(err))
+
+
+}
 
  useEffect(()=>{
-  axios.get(`http://localhost:3001/Products?q=${name}`).then(res=>console.log(res))
+  axios.get(`http://localhost:3001/Products?q=${name}`).then(res=>setData(res.data))
  },[name])
+ useEffect(()=>{
+  dispatch(getCartTotal());
+ },[cartItems])
 
   return (
     <Box display="flex" w={{base: "90%", sm:"90%", md:"90%", lg:"90%", xl:"70%"}} m="auto" justifyContent="space-between"  my="30px">
       {/* Left */}
-      <Box w={{base: "90%", sm:"90%", md:"90%", lg:"60%", xl:"60%"}} display="flex" flexDirection="column">
+      {data.length>0 ? <Box w={{base: "90%", sm:"90%", md:"90%", lg:"60%", xl:"60%"}} display="flex" gap={"20px"} flexDirection="column">
         {/* 1 product */} 
-        <Heading p={4} fontSize="25px"color="#4f585e">Showing all results for <span  fontWeight="bold">dettol</span></Heading>
-        <Flex px={6} py={5} border="1px solid #a7bdd3" borderRadius="10px">
+        <Heading p={4} fontSize="25px"color="#4f585e">Showing all results for <span  fontWeight="bold">{name}</span></Heading>
+
+        {data.map(el=>(<Flex px={6} py={5} border="1px solid #a7bdd3" borderRadius="10px">
           <Box mr="20px">
-            <Image mr="20px" w="50px" p="5px" src="https://cdn01.pharmeasy.in/dam/products_otc/I05057/dettol-liquid-handwash-refill-original-germ-protection-hand-wash-750-ml-2-1641787745.jpg" alt=""/>
+            <Image mr="20px" w="50px" p="5px" src={el.img1} alt=""/>
           </Box>
           <Flex flexDirection="column" flex>
-              <Heading mb="10px" fontSize={{base: "18px", sm:"18px", md:"18px", lg:"22px", xl:"22px"}} color="#4f585e">Dettol Liquid Handwash Refill - Original Germ Protection Hand Wash, 750 Ml</Heading>
-              <Text mb="10px" fontWeight="" color="#8897a4">By DETTOL SKINCARE</Text>
-              <Text mb="10px" color="#4f585e" fontWeight="bold">750ml Liquid in Packet</Text>
+              <Heading mb="10px" fontSize={{base: "18px", sm:"18px", md:"18px", lg:"22px", xl:"22px"}} color="#4f585e">{el.desc}</Heading>
+              <Text mb="10px" fontWeight="" color="#8897a4">By {el.company}</Text>
+              
               <Flex justifyContent="space-between" flexDirection={{base:"column", sm:"column", md:"column", lg:"row", xl:"row"}}>
                 <Flex>
-                  <Heading mr="5px" fontSize="22px" color="#4f585e">₹103.7</Heading>
-                  <Text color="#8897a4" mr="5px" mt="5px">MRP <Text as="s" mr="5px">₹109.00</Text></Text>
+                  <Heading mr="5px" fontSize="22px" color="#4f585e">₹{el.newPrice}</Heading>
+                  <Text color="#8897a4" mr="5px" mt="5px">MRP <Text as="s" mr="5px">₹{el.originalPrice}</Text></Text>
                   
                 </Flex>
-                <Button p={7} mt="10px" fontSize="22px" fontWeight="bold" borderRadius="5px" bg="#10847e" color="white" _hover={{bg:"#10847e"}}> Add to Cart</Button>
+                {!cartItems.find(e=>e.id===el.id)  ?
+                  <Button colorScheme={"teal"} onClick={()=>{
+                    if(!isAuth){
+                      navigate("/");
+                      return;
+                    }
+                    updateCart(1,el.id,el)
+                  }}  mt="10px"     > Add to Cart</Button>
+                  : 
+                  <Button  mt="10px"  colorScheme={"teal"} variant="outline" onClick={()=>{
+                    removeItem(el.id)
+                  }}>Remove</Button>
+                }
+                
               </Flex>
           </Flex>
-        </Flex>
-      </Box>
+        </Flex>))}
+        
+      </Box> : <Center>NO PRODUCTS FOUND TRY WITH A DIFFERENT KEYWORD</Center>}
       {/* Right */}
       <Hide below="lg">
         <Box w="400px" p={4}>
             <Text p={3} fontWeight="bold" fontSize="20px" color="#4f585e" >Please add item(s) to proceed</Text>
-            <Button mb="20px" w="100%" bg="#959595" color="white" p={7} mt="10px" fontSize="22px" _hover={{bg:"#959595"}} >View Cart</Button>
+            <Button mb="20px" w="100%" onClick={()=>navigate("/cart")}  colorScheme={"teal"} p={7} mt="10px" fontSize="22px" _hover={{bg:"#959595"}} >View Cart</Button>
             <Box color="#4f585e" p={4} border="1px solid #a7bdd3" borderRadius="10px" >
               <Center p={4} borderBottom="1px solid #a7bdd3">
                 <Text fontWeight="bold">What is a valid prescription ?</Text>

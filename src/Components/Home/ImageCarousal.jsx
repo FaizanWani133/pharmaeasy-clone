@@ -51,12 +51,14 @@ function ImageCarousal() {
       }
       
       
+      
 
     },3000)
+    
     return ()=>{
       clearInterval(id);
     }
-  })
+  },[])
   return (
     <Box
       width="100%"
