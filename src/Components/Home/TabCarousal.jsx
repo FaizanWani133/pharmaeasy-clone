@@ -92,6 +92,7 @@ function TabCarousal() {
         )}
 
         <Flex
+        paddingX={"10px"}
           width="100%"
           gap={{ base: "10px", lg: "40px", sm: "30px" }}
           overflowX="scroll"
@@ -100,6 +101,7 @@ function TabCarousal() {
           className="hideScroll"
           id="scrollBar"
           scrollBehavior="smooth"
+          textAlign={"center"}
         >
           {tabCards.map((tab) => (
             <Box

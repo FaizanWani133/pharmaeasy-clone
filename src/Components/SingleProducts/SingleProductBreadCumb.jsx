@@ -7,10 +7,10 @@ const SingleProductBreadCumb = (props) => {
     return (
     <Breadcrumb color="gray.600" fontSize="14px"spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
       <BreadcrumbItem>
-        <BreadcrumbLink  ><Link to={"/"}>Home</Link></BreadcrumbLink>
+        <Link to={"/"}>Home</Link>
       </BreadcrumbItem>
       <BreadcrumbItem >
-        <BreadcrumbLink ><Link to={"/healthcare"}>Healthcare</Link></BreadcrumbLink>
+        <Link to={"/healthcare"}>Healthcare</Link>
       </BreadcrumbItem>
       <BreadcrumbItem isCurrentPage>
         <Text width="150px" textOverflow="ellipsis" overflow="hidden" whiteSpace="nowrap">
