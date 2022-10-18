@@ -1,9 +1,11 @@
 import { Box, Button, Flex, Heading, Image, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Hide } from '@chakra-ui/react'
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Order } from './Order';
 import { UpiPayment } from './UpiPayment';
 
 export const Payment = () => {
+    const { totalAmount,totalOriginalAmount } = useSelector((state) => state.cart);
     
   return (
     <Box display="flex" w={{base: "90%", sm:"90%", md:"90%", lg:"90%", xl:"70%"}} m="auto" justifyContent="space-between"  mt="30px" mb="30px" flexDirection={{xl: "row", xs:"column", sm:"column", md:"column", lg:"row"}}>
@@ -222,8 +224,8 @@ export const Payment = () => {
             <Flex justifyContent="space-between" p="10px">
                     <Text fontSize='l' color="#4f585e">Cart Value</Text>
                     <Flex>
-                        <Heading fontSize='l' as="s" color="#8897a2" mr="5px">₹465.00</Heading>
-                        <Heading fontSize='l' color="#4f585e">₹385.95 </Heading> 
+                        <Heading fontSize='l' as="s" color="#8897a2" mr="5px">₹{totalOriginalAmount}</Heading>
+                        <Heading fontSize='l' color="#4f585e">₹{totalAmount}</Heading> 
                     </Flex>
                 </Flex>
                 <Flex justifyContent="space-between" p="10px">
@@ -235,7 +237,7 @@ export const Payment = () => {
                 </Flex>
                 <Flex justifyContent="space-between" p="10px" borderTop="2px dotted #e4e7ea" borderBottom="2px dotted #e4e7ea">
                     <Text fontSize='l' color="#4f585e">Cart Value</Text>
-                    <Heading fontSize='l' color="#4f585e">₹460.95 </Heading> 
+                    <Heading fontSize='l' color="#4f585e">₹{totalAmount+75} </Heading> 
                     
                 </Flex>   
                 <Accordion defaultIndex={[0]} allowMultiple border="2px dotted #3bb896" borderRadius="7px" bg="#f2fff8" p={2} mt="20px">
@@ -245,7 +247,7 @@ export const Payment = () => {
                             <Box flex='1' textAlign='left' justifyContent="space-around" w="100%">
                                 <Flex justifyContent="space-between" color="#3bb896">
                                     <Image w="20px" pr={1} src="https://cdn-icons-png.flaticon.com/512/1490/1490817.png" alt="icon" />
-                                    Total savings of <Text fontWeight="bold" mr="5px" ml="5px"> ₹103.5 </Text> on this order         
+                                    Total savings of <Text fontWeight="bold" mr="5px" ml="5px"> ₹{totalOriginalAmount-totalAmount} </Text> on this order         
                                 </Flex>
                             </Box>
                             <AccordionIcon color="#3bb896" />

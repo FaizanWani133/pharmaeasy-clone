@@ -31,7 +31,7 @@ export function LoginIndividualSlider() {
         setUser({...user, [name]: value})
 
     }
-    console.log(user);
+    // console.log(user);
   
     const handleLogin = async(e) =>{
       e.preventDefault();
@@ -71,13 +71,13 @@ export function LoginIndividualSlider() {
         catch (error) {
             console.log(error);   
         }
-        console.log(isAuth);
+        // console.log(isAuth);
         
         setUser(initState)
         onClose();
     }
 
-    console.log(auth);
+    // console.log(auth);
     return (
       <>
        {auth ? <Text > <LogOut /> </Text> : <Text onClick={onOpen} color="black" cursor="pointer"  >Hello, Log in </Text>}

@@ -4,35 +4,37 @@ import axios from "axios";
 
 
 export const cartInitialState = {
+    totalOriginalAmount:0,
   totalCount: 0,
   totalAmount: 0,
   cartItems: [],
 };
-axios.get("http://localhost:3001/Cart").then(res=>{
-    
-    cartInitialState.totalCount = res.data
-})
+
 
 
 const cartReducer = (state = cartInitialState, action) => {
   switch (action.type) {
     case types.GET_TOTAL:
-      let { totalAmount, totalCount } = state.cartItems.reduce(
+      let { totalAmount, totalCount,totalOriginalAmount } = state.cartItems.reduce(
         (cartTotal, cartItem) => {
-          const { newPrice, amount } = cartItem;
+          const { newPrice, amount , originalPrice } = cartItem;
           const itemTotal = newPrice * amount;
+          const OriginalTotal = originalPrice * amount;
 
           cartTotal.totalAmount += itemTotal;
           cartTotal.totalCount += amount;
+          cartTotal.totalOriginalAmount += OriginalTotal;
           return cartTotal;
         },
         {
           totalCount: 0,
           totalAmount: 0,
+          totalOriginalAmount:0
         }
       );
       totalAmount = parseFloat(totalAmount.toFixed(2));
-      return { ...state, totalAmount, totalCount };
+      totalOriginalAmount = parseFloat(totalOriginalAmount.toFixed(2));
+      return { ...state, totalAmount, totalCount,totalOriginalAmount };
 
     case types.UPDATE:
       let tempCartInc = state.cartItems.map((cartItem) => {

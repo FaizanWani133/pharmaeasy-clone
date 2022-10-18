@@ -2,24 +2,24 @@ import { Button, Center, Flex,Text, Image, Modal, ModalBody, ModalContent, Modal
 import axios from 'axios';
 import React from 'react'
 import { GiHeartPlus } from 'react-icons/gi';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { clearCart } from '../../Redux/Cart/action';
 
 export function Order() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     let navigate = useNavigate(); 
+    const dispatch = useDispatch();
 
     const handleClick = () => {
-
+      dispatch(clearCart());
         let path = `/`; 
         navigate(path);
+      
+      
 
 
-        fetch("http://localhost:3001/Cart",{
-          method:"PATCH",
-          body:[],
-          headers:{"content-type": "application/json"}
-
-        })
+        
 
     }
     return (
