@@ -9,10 +9,7 @@ export const cartInitialState = {
   totalAmount: 0,
   cartItems: [],
 };
-axios.get("http://localhost:3001/Cart").then(res=>{
-    
-    cartInitialState.totalCount = res.data
-})
+
 
 
 const cartReducer = (state = cartInitialState, action) => {

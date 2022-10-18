@@ -32,7 +32,7 @@ function ImageCarousal() {
     setScroll(prev=>prev-400)
   }
 
-  console.log(scroll);
+  // console.log(scroll);
   useEffect(() => {
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
     return () => {

@@ -8,10 +8,10 @@ function ProductsBreadCrumb({cat}) {
   return (
     <Breadcrumb  fontSize="12px" spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
   <BreadcrumbItem>
-    <BreadcrumbLink _hover={{textDecoration:"none"}}  ><Link className='link' to={"/"}>Home</Link></BreadcrumbLink>
+   <Link className='link' to={"/"}>Home</Link>
   </BreadcrumbItem>
   <BreadcrumbItem >
-    <BreadcrumbLink _hover={{textDecoration:"none"}} ><Link className='link' to={"/healthcare"}>Healthcare</Link></BreadcrumbLink>
+   <Link className='link' to={"/healthcare"}>Healthcare</Link>
   </BreadcrumbItem>
   <BreadcrumbItem isCurrentPage>
     <BreadcrumbLink _hover={{textDecoration:"none"}}>{cat}</BreadcrumbLink>

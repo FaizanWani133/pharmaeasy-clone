@@ -15,7 +15,7 @@ export function LogOut() {
 
   return (
     <>
-        <Text color="black" onClick={onOpen}>User</Text>
+        <Button color="black" onClick={onOpen}>User</Button>
       <AlertDialog
         motionPreset='slideInBottom'
         leastDestructiveRef={cancelRef}

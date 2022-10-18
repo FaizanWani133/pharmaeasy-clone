@@ -56,27 +56,27 @@ function Products() {
   const [filters, setFilters] = useState([
     {
       id: 1,
-      checked: false,
+      checked: filterArr.includes("Dettol"),
       label: "Dettol",
     },
     {
       id: 2,
-      checked: false,
+      checked: filterArr.includes("Savlon") ,
       label: "Savlon",
     },
     {
       id: 3,
-      checked: false,
+      checked: filterArr.includes("PharmEasy") ,
       label: "PharmEasy",
     },
     {
       id: 4,
-      checked: false,
+      checked: filterArr.includes("Revital"), 
       label: "Revital",
     },
     {
       id: 5,
-      checked: false,
+      checked: filterArr.includes("EverHerb") ,
       label: "EverHerb",
     },
   ]);
@@ -89,24 +89,24 @@ function Products() {
   }
 
  
-  function handleCheckedState(id){
-    setFilters([...filters.map(el=>(el.id === id ? {...el,checked:!el.checked}:el))])
-    const newArr = []
-       filters.forEach(el=>{
-        if(el.checked){
-          newArr.push(el.label)
-        }
-      })
-      setFilterArr(newArr);
-      console.log(filters);
-  }
+function handleCheckedState(id){
+  
+     setFilters((filter)=>([...filters.map(el=>(el.id === id ? {...el,checked:!el.checked}:el))]))
+     console.log(filters);
+     
+    
+     
+    
+     
+}
+
   
   
   
   useEffect(() => {
-    let p3;
+
     
-    // let p3 = [...filterArr.map(el=>(`&company=${el.toUpperCase()}`))]
+    let p3 = [...filterArr.map(el=>(`&company=${el.toUpperCase()}`))]
     // console.log(p3.join(""))
     setLoading(true);
     axios
@@ -122,7 +122,7 @@ function Products() {
       .finally(() => {
         setLoading(false);
       });
-  }, [page, orderBy,filter]);
+  }, [page, orderBy,filterArr]);
   if (page > totalPages) {
     setPage(totalPages);
   }
@@ -137,15 +137,20 @@ function Products() {
    
     if(filterArr){
         paramObj.brand = filterArr 
-    }
-      
-    
-    
-    
-      
+    } 
     setSearch(paramObj);
     
-  }, [page, orderBy, filters]);
+  }, [page, orderBy, filters,filterArr]);
+  useEffect(()=>{
+    const newArr = [];
+    filters.forEach(el=>{
+      if(el.checked){
+        newArr.push(el.label);
+      }
+     }) 
+     setFilterArr(newArr)
+
+  },[filters])
 
   for (let i = 0; i < totalPages; i++) arr[i] = i + 1;
   
@@ -254,18 +259,19 @@ function Products() {
                   </Text>
                   
                     <VStack spacing={"20px"} width={"100%"}>
-                      <CheckboxGroup defaultValue={filterArr} >
+                      <CheckboxGroup defaultValue={filterArr}>
                       {filters.map((el) => (
                         <HStack  key={el.id} width={"100%"} justify="space-between">
                           <Text fontSize={"14px"} fontWeight="400">
                             {el.label}
                           </Text>
                           <Checkbox
+                        
                           onChange={()=>handleCheckedState(el.id)}
                             border={"grey"}
                             colorScheme="teal"
                             value={el.label}
-                            isChecked={el.checked}
+                            
                           ></Checkbox>
                         </HStack>
                       ))}
@@ -315,7 +321,7 @@ function Products() {
             {filterArr && <HStack mb="20px"><Text fontSize={"12px"} >Applied Filters :</Text>{
               filters.map(e=>{
                 if(e.checked){
-                  return <Button   mr={"10px"}  size={"xs"} rightIcon={<CloseIcon onClick={(()=>handleCheckedState(e.id))} fontSize={"8px"}/>} variant={"outline"} colorScheme={"teal"}>{e.label}</Button>
+                  return <Button key={e.id}  mr={"10px"}  size={"xs"} rightIcon={<CloseIcon onClick={(()=>handleCheckedState(e.id))} fontSize={"8px"}/>} variant={"outline"} colorScheme={"teal"}>{e.label}</Button>
                 }
               })
             }</HStack>}
