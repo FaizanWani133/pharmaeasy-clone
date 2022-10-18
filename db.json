@@ -652,22 +652,7 @@
     }
   ],
   "Cart": [
-    {
-      "_id": "62aee9fb026df04f68c9d12b",
-      "id": 2,
-      "desc": "Revital H Men Multivitamin With Calcium, Zinc & Ginseng For Immunity, Strong Bones & Energy (30 Capsules)",
-      "company": "REVITAL",
-      "img1": "https://cdn01.pharmeasy.in/dam/products_otc/270552/revital-h-men-multivitamin-with-calcium-zinc-ginseng-for-immunity-strong-bones-energy-30-capsules-2-1654077741.jpg?dim=320x320&dpr=1&q=100",
-      "img2": "https://cdn01.pharmeasy.in/dam/products_otc/270552/revital-h-men-multivitamin-with-calcium-zinc-ginseng-for-immunity-strong-bones-energy-30-capsules-3-1654078581.jpg",
-      "img3": "https://cdn01.pharmeasy.in/dam/products_otc/270552/revital-h-health-supplement-capsules-bottle-of-30-6.2-1641398805.jpg",
-      "img4": "https://cdn01.pharmeasy.in/dam/products_otc/270552/revital-h-health-supplement-capsules-bottle-of-30-6.3-1641398817.jpg",
-      "img5": "https://cdn01.pharmeasy.in/dam/products_otc/270552/revital-h-health-supplement-capsules-bottle-of-30-6.6-1641398808.jpg",
-      "ratings": 484,
-      "newPrice": 263.5,
-      "originalPrice": 310,
-      "offer": 15,
-      "about": "Revital H capsule is a unique and balanced combination of 10 vitamins, 9 minerals and ginseng for your daily needs. It gives you the energy to perform your everyday activities, keeps you active and fit. There are variants of this product available that cater to specific needs like the Revital H Woman. Amidst our busy lifestyle, it is critical to keep our health on priority.",
-      "amount": 1
-    }
+    
+
   ]
 }

@@ -9,6 +9,7 @@ import {
   Select,
   Text,
   useDisclosure,
+  useToast,
   VStack,
 } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
@@ -32,6 +33,7 @@ import axios from "axios";
 import { addToCart, getCartTotal, remove, updateCart } from "../../Redux/Cart/action";
 
 const Product = (props) => {
+  const toast= useToast();
     const isAuth = localStorage.getItem('isAuth') || false;
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -288,6 +290,13 @@ useEffect(()=>{
                     //   onOpen();
                     //   setmodalpos(true);
                     if(!isAuth){
+                      toast({
+                        title: 'User Not Logged in',
+                        status: 'error',
+                        duration: 3000,
+                        isClosable: true,
+                        position: "top",
+                      });
                         navigate("/")
                         return;
                     }
@@ -566,7 +575,15 @@ useEffect(()=>{
             </Flex>
           </Box>
           
-          <Button onClick={()=>navigate("/cart")} variant="outline" colorScheme="teal" w="100%" size="lg"   as="b">
+          <Button onClick={()=>{
+            toast({
+              title: 'User Not Logged in',
+              status: 'error',
+              duration: 3000,
+              isClosable: true,
+              position: "top",
+            });
+            navigate("/cart")}} variant="outline" colorScheme="teal" w="100%" size="lg"   as="b">
             View Cart &gt;
           </Button>
         </Box>
