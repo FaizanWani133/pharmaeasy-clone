@@ -40,7 +40,7 @@ console.log(name);
       <Hide below="lg">
         <Box w="400px" p={4}>
             <Text p={3} fontWeight="bold" fontSize="20px" color="#4f585e" >Please add item(s) to proceed</Text>
-            <Button mb="20px" w="100%" bg="#959595" color="white" p={7} mt="10px" fontSize="22px" _hover={{bg:"#959595"}} >View Cart ></Button>
+            <Button mb="20px" w="100%" bg="#959595" color="white" p={7} mt="10px" fontSize="22px" _hover={{bg:"#959595"}} >View Cart</Button>
             <Box color="#4f585e" p={4} border="1px solid #a7bdd3" borderRadius="10px" >
               <Center p={4} borderBottom="1px solid #a7bdd3">
                 <Text fontWeight="bold">What is a valid prescription ?</Text>
