@@ -80,7 +80,7 @@ export function LoginIndividualSlider() {
     // console.log(auth);
     return (
       <>
-       {auth ? <Text > <LogOut /> </Text> : <Text onClick={onOpen} color="black" cursor="pointer"  >Hello, Log in </Text>}
+       {auth ? <Text > <LogOut /> </Text> : <Text onClick={onOpen} color="black" cursor="pointer" _hover={{color:"#10847E"}} >Hello, Log in </Text>}
         <Drawer
           isOpen={isOpen}
           placement='right'

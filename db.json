@@ -649,7 +649,31 @@
       "email": "abc@test.com",
       "password": "123",
       "id": 4
+    },
+    {
+      "name": "a",
+      "email": "a@b.com",
+      "password": "123",
+      "id": 5
     }
   ],
-  "Cart": []
+  "Cart": [
+    {
+      "_id": "62aee9fb026df04f68c9d12c",
+      "id": 3,
+      "desc": "Pharmeasy All-In -One Vaporizer",
+      "company": "PHARMEASY",
+      "img1": "https://cdn01.pharmeasy.in/dam/products_otc/Q83701/pharmeasy-all-in-one-vaporizer-1-1654233812.jpg?dim=320x320&dpr=1&q=100",
+      "img2": "https://cdn01.pharmeasy.in/dam/products_otc/Q83701/pharmeasy-all-in-one-vaporizer-2-1654233960.jpg",
+      "img3": "https://cdn01.pharmeasy.in/dam/products_otc/Q83701/pharmeasy-all-in-one-vaporizer-3-1654233960.jpg",
+      "img4": "https://cdn01.pharmeasy.in/dam/products_otc/Q83701/pharmeasy-all-in-one-vaporizer-1-1654233812.jpg?dim=320x320&dpr=1&q=100",
+      "img5": "https://cdn01.pharmeasy.in/dam/products_otc/Q83701/pharmeasy-all-in-one-vaporizer-6.1-1654233944.jpg",
+      "ratings": 311,
+      "newPrice": 539,
+      "originalPrice": 599,
+      "offer": 10,
+      "about": "harmEasy All In One Vaporizer is made up of good quality copper wire to generate dense steam and contains 3 attachments that can be used for multiple purposes. This device can help relieve the symptoms of a common cold or the flu. It can decongest the lungs, clear away the sinuses, and aid in easier breathing and better sleep. PharmEasy All In One Vaporizer can be utilized for steam therapy that can ease headaches and sinus pain. PharmEasy All In One Vaporizer can also be used to boost the health of facial skin. It opens up pores and unclogs them. Regular usage can be effective in preventing acne and pimples. It soothes the facial skin. Women can use this device after removing makeup and men can use it before shaving to smoothen their beard.",
+      "amount": 1
+    }
+  ]
 }

@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 export const cartInitialState = {
-    totalOriginalAmount:0,
+  totalOriginalAmount:0,
   totalCount: 0,
   totalAmount: 0,
   cartItems: [],
