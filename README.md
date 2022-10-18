@@ -1,4 +1,4 @@
-ORIGINAL WEBSITE https://pharmeasy.in/ .
+ORIGINAL WEBSITE https://pharmeasy.in/                                                                                      
 CLONED WEBSITE https://pharmeasyclone2.netlify.app/
 # Getting Started with Create React App
 
