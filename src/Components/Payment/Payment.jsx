@@ -2,7 +2,7 @@ import { Box, Button, Flex, Heading, Image, Text, Accordion, AccordionItem, Acco
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Order } from './Order';
-import { UpiPayment } from './UpiPayment';
+
 
 export const Payment = () => {
     const { totalAmount,totalOriginalAmount } = useSelector((state) => state.cart);
@@ -109,7 +109,7 @@ export const Payment = () => {
                             </h2>
                             <AccordionPanel pb={4}>
                                 
-                            <UpiPayment />
+                            <Order />
                             </AccordionPanel>
                         </AccordionItem>
                     </Accordion>

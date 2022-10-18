@@ -2,20 +2,33 @@ import { Button, Center, Flex,Text, Image, Modal, ModalBody, ModalContent, Modal
 import axios from 'axios';
 import React from 'react'
 import { GiHeartPlus } from 'react-icons/gi';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { clearCart } from '../../Redux/Cart/action';
+import { clearCart, remove } from '../../Redux/Cart/action';
 
 export function Order() {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { cartItems } = useSelector((state) => state.cart);
+    
     let navigate = useNavigate(); 
     const dispatch = useDispatch();
 
     const handleClick = () => {
       dispatch(clearCart());
-        let path = `/`; 
-        navigate(path);
-      
+        
+
+
+cartItems.map(el=>{
+  fetch(`https://pharmeasy-server1234.herokuapp.com/Cart/${el.id}`,{
+    method:"DELETE",
+   
+    headers:{"content-type": "application/json"}
+}).then((res)=>res.json())
+  
+})
+
+        
+      navigate("/")
       
 
 
